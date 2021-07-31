@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "109-1093809_truck-top-view-vector-png-download-car-vector.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chernobyl.otf">
+            <string>Chernobyl</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="racing2DGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundMenu" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-An-tTX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydC-UG-9gz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q51-Fp-FZv">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bC-hv-nOT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNZ-vN-nYM">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="710"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowUserCar_xenon_greenNeon_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-ee-z5h">
+                                                <rect key="frame" x="100" y="172.66666666666663" width="214" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="QpZ-6m-rg5"/>
+                                                </constraints>
+                                            </imageView>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-Hf-kU0">
+                                                <rect key="frame" x="286" y="559.66666666666663" width="51" height="31"/>
+                                                <color key="onTintColor" systemColor="systemTealColor"/>
+                                                <connections>
+                                                    <action selector="secondBarrierSwitchAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="EY3-lu-38x"/>
+                                                </connections>
+                                            </switch>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-V0-Cxq">
+                                                <rect key="frame" x="275.66666666666669" y="462" width="70" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="C3k-Hm-G1C"/>
+                                                    <constraint firstAttribute="width" constant="70" id="Wgo-5S-9XS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select barrier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFa-LG-9MK">
+                                                <rect key="frame" x="20" y="392.66666666666669" width="374" height="29.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wG6-Pg-gsI">
+                                                <rect key="frame" x="79" y="559.66666666666663" width="51" height="31"/>
+                                                <color key="onTintColor" systemColor="systemTealColor"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="firstBarrierSwichAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HA0-ph-5sI"/>
+                                                </connections>
+                                            </switch>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Road_Barrier" translatesAutoresizingMaskIntoConstraints="NO" id="Qae-Wx-8ue">
+                                                <rect key="frame" x="68.666666666666671" y="462" width="70.000000000000014" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="bd5-WE-BCW"/>
+                                                    <constraint firstAttribute="height" constant="70" id="mSk-fd-Evw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя игрока" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wFA-vA-qdZ">
+                                                <rect key="frame" x="20" y="69.333333333333329" width="374" height="34"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="ypV-gh-q6C"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select car" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BM9-0E-tnd">
+                                                <rect key="frame" x="20" y="123.33333333333333" width="374" height="29.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1D-dN-DYp" customClass="CustomButton" customModule="racing2DGame" customModuleProvider="target">
+                                                <rect key="frame" x="334" y="248.33333333333337" width="60" height="49"/>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
+                                                <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="47"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rightChangeCarButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pXp-Xe-noL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owo-wo-gRc" customClass="CustomButton" customModule="racing2DGame" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="248.33333333333337" width="60" height="49"/>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
+                                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="47"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="leftChangeCarButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0RV-Ei-pP5"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6G-El-7kF">
+                                                <rect key="frame" x="137.66666666666669" y="20" width="138.66666666666669" height="29.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEd-1z-zCz">
+                                                <rect key="frame" x="364" y="19.666666666666671" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="obL-zw-3gs"/>
+                                                    <constraint firstAttribute="width" secondItem="sEd-1z-zCz" secondAttribute="height" multiplier="1:1" id="wbw-Jn-OUH"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemTealColor"/>
+                                                <state key="normal" image="xmark.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="37"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeScreenButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yih-Qo-9Ed"/>
+                                                </connections>
+                                            </button>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="a8O-ka-qtC">
+                                                <rect key="frame" x="18" y="660" width="378" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageReference key="minimumValueImage" image="minus" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="plus" catalog="system" symbolScale="large"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twv-2x-fa8">
+                                                <rect key="frame" x="133.66666666666666" y="610.66666666666663" width="146.99999999999997" height="29.333333333333371"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Obl-V0-Cxq" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" multiplier="1.5" id="29r-BM-to1"/>
+                                            <constraint firstItem="7dz-ee-z5h" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="100" id="2Gp-xz-ng0"/>
+                                            <constraint firstItem="Obl-V0-Cxq" firstAttribute="top" secondItem="zFa-LG-9MK" secondAttribute="bottom" constant="40" id="4rk-5q-zfD"/>
+                                            <constraint firstItem="BM9-0E-tnd" firstAttribute="top" secondItem="wFA-vA-qdZ" secondAttribute="bottom" constant="20" id="6o2-fP-azE"/>
+                                            <constraint firstItem="BM9-0E-tnd" firstAttribute="trailing" secondItem="wFA-vA-qdZ" secondAttribute="trailing" id="7Lc-ma-iHb"/>
+                                            <constraint firstItem="a8O-ka-qtC" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="9Ia-ly-rBm"/>
+                                            <constraint firstItem="Owo-wo-gRc" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="9It-0T-cKU"/>
+                                            <constraint firstItem="7dz-ee-z5h" firstAttribute="leading" secondItem="Owo-wo-gRc" secondAttribute="trailing" constant="20" id="Aqm-kQ-HC2"/>
+                                            <constraint firstItem="c1D-dN-DYp" firstAttribute="leading" secondItem="7dz-ee-z5h" secondAttribute="trailing" constant="20" id="Bnu-Hk-noA"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="twv-2x-fa8" secondAttribute="trailing" constant="20" id="CN0-TH-Dde"/>
+                                            <constraint firstItem="a8O-ka-qtC" firstAttribute="top" secondItem="twv-2x-fa8" secondAttribute="bottom" constant="20" id="IhH-g8-QJ0"/>
+                                            <constraint firstAttribute="trailing" secondItem="a8O-ka-qtC" secondAttribute="trailing" constant="20" id="Mfn-p8-Maf"/>
+                                            <constraint firstItem="K6G-El-7kF" firstAttribute="top" secondItem="GNZ-vN-nYM" secondAttribute="top" constant="20" id="O4c-m8-ofl"/>
+                                            <constraint firstItem="wG6-Pg-gsI" firstAttribute="centerX" secondItem="Qae-Wx-8ue" secondAttribute="centerX" id="O5S-q0-cUA"/>
+                                            <constraint firstAttribute="trailing" secondItem="c1D-dN-DYp" secondAttribute="trailing" constant="20" id="P9s-pU-EBH"/>
+                                            <constraint firstAttribute="bottom" secondItem="a8O-ka-qtC" secondAttribute="bottom" constant="20" id="RLd-7o-LjU"/>
+                                            <constraint firstAttribute="trailing" secondItem="sEd-1z-zCz" secondAttribute="trailing" constant="20" id="SNS-Jm-WRx"/>
+                                            <constraint firstItem="wG6-Pg-gsI" firstAttribute="top" secondItem="Qae-Wx-8ue" secondAttribute="bottom" constant="27.5" id="TKJ-Il-kYC"/>
+                                            <constraint firstAttribute="trailing" secondItem="zFa-LG-9MK" secondAttribute="trailing" constant="20" id="V3n-2z-9P1"/>
+                                            <constraint firstAttribute="trailing" secondItem="7dz-ee-z5h" secondAttribute="trailing" constant="100" id="Wdg-AY-GYQ"/>
+                                            <constraint firstItem="0qb-Hf-kU0" firstAttribute="top" secondItem="Obl-V0-Cxq" secondAttribute="bottom" constant="27.5" id="XKJ-i4-cag"/>
+                                            <constraint firstItem="K6G-El-7kF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="Xwd-iu-5cH"/>
+                                            <constraint firstItem="wFA-vA-qdZ" firstAttribute="top" secondItem="K6G-El-7kF" secondAttribute="bottom" constant="20" id="YBU-uS-4CI"/>
+                                            <constraint firstItem="sEd-1z-zCz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K6G-El-7kF" secondAttribute="trailing" constant="20" id="arj-d0-W5i"/>
+                                            <constraint firstItem="twv-2x-fa8" firstAttribute="top" secondItem="wG6-Pg-gsI" secondAttribute="bottom" constant="20" id="brL-dk-7Fu"/>
+                                            <constraint firstAttribute="trailing" secondItem="wFA-vA-qdZ" secondAttribute="trailing" constant="20" id="cC3-6m-G07"/>
+                                            <constraint firstItem="zFa-LG-9MK" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="fWt-Ny-hY5"/>
+                                            <constraint firstItem="7dz-ee-z5h" firstAttribute="top" secondItem="BM9-0E-tnd" secondAttribute="bottom" constant="20" id="feP-51-oz3"/>
+                                            <constraint firstItem="Owo-wo-gRc" firstAttribute="centerY" secondItem="7dz-ee-z5h" secondAttribute="centerY" id="gJ5-FU-iG1"/>
+                                            <constraint firstItem="twv-2x-fa8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="iZw-YN-tfd"/>
+                                            <constraint firstItem="c1D-dN-DYp" firstAttribute="centerY" secondItem="7dz-ee-z5h" secondAttribute="centerY" id="kJV-dc-6Ih"/>
+                                            <constraint firstItem="wFA-vA-qdZ" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="lUQ-pi-GDI"/>
+                                            <constraint firstItem="Qae-Wx-8ue" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" multiplier="0.5" id="ntG-wt-mrX"/>
+                                            <constraint firstItem="Qae-Wx-8ue" firstAttribute="top" secondItem="zFa-LG-9MK" secondAttribute="bottom" constant="40" id="piy-S6-o2K"/>
+                                            <constraint firstItem="zFa-LG-9MK" firstAttribute="top" secondItem="7dz-ee-z5h" secondAttribute="bottom" constant="20" id="rFk-Zb-KmW"/>
+                                            <constraint firstItem="0qb-Hf-kU0" firstAttribute="centerX" secondItem="Obl-V0-Cxq" secondAttribute="centerX" id="sO6-4b-vmX"/>
+                                            <constraint firstItem="zFa-LG-9MK" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="uAC-nG-Phw"/>
+                                            <constraint firstItem="sEd-1z-zCz" firstAttribute="centerY" secondItem="K6G-El-7kF" secondAttribute="centerY" id="yF0-jP-WfX"/>
+                                            <constraint firstItem="BM9-0E-tnd" firstAttribute="leading" secondItem="wFA-vA-qdZ" secondAttribute="leading" id="zfZ-n9-QYc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GNZ-vN-nYM" firstAttribute="width" secondItem="2bC-hv-nOT" secondAttribute="width" id="Dls-7T-KIn"/>
+                                    <constraint firstItem="GNZ-vN-nYM" firstAttribute="leading" secondItem="2bC-hv-nOT" secondAttribute="leading" id="fd2-kW-SoJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="GNZ-vN-nYM" secondAttribute="trailing" id="n76-Id-C8j"/>
+                                    <constraint firstAttribute="bottom" secondItem="GNZ-vN-nYM" secondAttribute="bottom" id="wcP-9x-OBP"/>
+                                    <constraint firstItem="GNZ-vN-nYM" firstAttribute="top" secondItem="2bC-hv-nOT" secondAttribute="top" id="zo8-Cm-AgY"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="T9d-An-tTX" secondAttribute="trailing" id="646-GM-8sq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2bC-hv-nOT" secondAttribute="trailing" id="7gv-BE-Ua0"/>
+                            <constraint firstItem="2bC-hv-nOT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7pA-hc-pPK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ydC-UG-9gz" secondAttribute="trailing" id="ANq-iY-zt3"/>
+                            <constraint firstAttribute="bottom" secondItem="ydC-UG-9gz" secondAttribute="bottom" id="MD8-Fc-q2h"/>
+                            <constraint firstItem="2bC-hv-nOT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mef-42-L4E"/>
+                            <constraint firstAttribute="bottom" secondItem="T9d-An-tTX" secondAttribute="bottom" id="S51-Tf-GXz"/>
+                            <constraint firstItem="K6G-El-7kF" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="ThX-Gs-2dl"/>
+                            <constraint firstItem="ydC-UG-9gz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="aQi-Su-5pv"/>
+                            <constraint firstItem="ydC-UG-9gz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cdf-Yg-ZNn"/>
+                            <constraint firstItem="twv-2x-fa8" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="geu-CN-TQ8"/>
+                            <constraint firstItem="T9d-An-tTX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qX6-Uw-gTY"/>
+                            <constraint firstItem="T9d-An-tTX" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wu9-XN-Jm2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2bC-hv-nOT" secondAttribute="bottom" id="yMy-JL-HWP"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="750"/>
+                    <connections>
+                        <outlet property="closeScreenButton" destination="sEd-1z-zCz" id="Lbt-Fn-f1v"/>
+                        <outlet property="firstTypeBarrierImageView" destination="Qae-Wx-8ue" id="R4S-Bl-oh1"/>
+                        <outlet property="firstTypeBarrierSwich" destination="wG6-Pg-gsI" id="pQx-YG-WRJ"/>
+                        <outlet property="leftChangeCarButton" destination="Owo-wo-gRc" id="j3e-bV-c6o"/>
+                        <outlet property="playerNameLabel" destination="K6G-El-7kF" id="8u3-0p-SP8"/>
+                        <outlet property="playerNameTextField" destination="wFA-vA-qdZ" id="Iqj-W8-fCg"/>
+                        <outlet property="rightChangeCarButton" destination="c1D-dN-DYp" id="PWo-0U-XNE"/>
+                        <outlet property="scrollView" destination="2bC-hv-nOT" id="RGs-c8-9Cn"/>
+                        <outlet property="secondTypeBarrierImageView" destination="Obl-V0-Cxq" id="EqY-aj-yyq"/>
+                        <outlet property="secondTypeBarrierSwich" destination="0qb-Hf-kU0" id="cH7-eL-utt"/>
+                        <outlet property="selectBarrierLabel" destination="zFa-LG-9MK" id="7lM-bL-dCH"/>
+                        <outlet property="selectCarLabel" destination="BM9-0E-tnd" id="mAe-C0-UVl"/>
+                        <outlet property="selectedCarImageView" destination="7dz-ee-z5h" id="nT4-JJ-VpJ"/>
+                        <outlet property="speedGameLabel" destination="twv-2x-fa8" id="M8b-wm-oeZ"/>
+                        <outlet property="speedGameSlider" destination="a8O-ka-qtC" id="7tP-Pd-afP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="101.90217391304348"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Road_Barrier" width="384" height="384"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="backgroundMenu" width="1080" height="1917"/>
+        <image name="car_icon" width="256" height="256"/>
+        <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="yellowUserCar_xenon_greenNeon_icon" width="180" height="395"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
