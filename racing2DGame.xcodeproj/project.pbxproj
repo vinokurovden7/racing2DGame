@@ -18,6 +18,8 @@
 		920A20672642EF2B00AD7A26 /* TableScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920A20662642EF2B00AD7A26 /* TableScoreViewController.swift */; };
 		920A20692642EF7800AD7A26 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920A20682642EF7800AD7A26 /* MainMenuViewController.swift */; };
 		92241B6026777C45002051F9 /* GameScoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92241B5F26777C45002051F9 /* GameScoreClass.swift */; };
+		923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */; };
+		923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDB26B6D395002AAB23 /* Chernobyl.otf */; };
 		923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */; };
 		923F88D12692D23900FF9EAC /* GameScoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */; };
 		923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */; };
@@ -31,8 +33,6 @@
 		92B16556265E3E3A004BF1B4 /* Button+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B16555265E3E3A004BF1B4 /* Button+Shadow.swift */; };
 		92B1655B265E66DE004BF1B4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1655A265E66DE004BF1B4 /* Game.swift */; };
 		92EEC9EC26543AA900D602E4 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EEC9EB26543AA800D602E4 /* GameOverViewController.swift */; };
-		92FDD9922663E47100D42280 /* Pumpkin Pancakes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92FDD9912663E47100D42280 /* Pumpkin Pancakes.ttf */; };
-		92FDD9942663E59900D42280 /* Chernobyl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92FDD9932663E59900D42280 /* Chernobyl.otf */; };
 		92FDD9962663E7AA00D42280 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDD9952663E7AA00D42280 /* UIFont+CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,8 @@
 		920A20662642EF2B00AD7A26 /* TableScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScoreViewController.swift; sourceTree = "<group>"; };
 		920A20682642EF7800AD7A26 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		92241B5F26777C45002051F9 /* GameScoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreClass.swift; sourceTree = "<group>"; };
+		923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pumpkin Pancakes.ttf"; sourceTree = "<group>"; };
+		923F0FDB26B6D395002AAB23 /* Chernobyl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chernobyl.otf; sourceTree = "<group>"; };
 		923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableScoreViewController.storyboard; sourceTree = "<group>"; };
 		923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreViewCell.swift; sourceTree = "<group>"; };
 		923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScoreViewCell.xib; sourceTree = "<group>"; };
@@ -63,8 +65,6 @@
 		92B16555265E3E3A004BF1B4 /* Button+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Shadow.swift"; sourceTree = "<group>"; };
 		92B1655A265E66DE004BF1B4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		92EEC9EB26543AA800D602E4 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
-		92FDD9912663E47100D42280 /* Pumpkin Pancakes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pumpkin Pancakes.ttf"; path = "fonts/Pumpkin Pancakes.ttf"; sourceTree = SOURCE_ROOT; };
-		92FDD9932663E59900D42280 /* Chernobyl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Chernobyl.otf; path = fonts/Chernobyl.otf; sourceTree = SOURCE_ROOT; };
 		92FDD9952663E7AA00D42280 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +188,8 @@
 		92FDD9902663E41700D42280 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				92FDD9912663E47100D42280 /* Pumpkin Pancakes.ttf */,
-				92FDD9932663E59900D42280 /* Chernobyl.otf */,
+				923F0FDB26B6D395002AAB23 /* Chernobyl.otf */,
+				923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -254,11 +254,11 @@
 				920A205B2642ED2A00AD7A26 /* LaunchScreen.storyboard in Resources */,
 				923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */,
 				920A20582642ED2A00AD7A26 /* Assets.xcassets in Resources */,
-				92FDD9922663E47100D42280 /* Pumpkin Pancakes.ttf in Resources */,
 				92696A3B266891D300F2B540 /* Settings.storyboard in Resources */,
-				92FDD9942663E59900D42280 /* Chernobyl.otf in Resources */,
 				920A20562642ED2900AD7A26 /* Main.storyboard in Resources */,
 				923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */,
+				923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */,
+				923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
