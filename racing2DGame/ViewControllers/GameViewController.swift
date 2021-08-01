@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class GameViewController: CustomViewController {
 
@@ -55,6 +56,8 @@ class GameViewController: CustomViewController {
     private var selectedBarrier: [String:Bool] = [:]
     private var threeTimer = Timer()
     private var barrierTimer = Timer()
+    private let motionManager = CMMotionManager()
+    private var typeControll = 0
     
     
     private enum DirectionRotation {
@@ -479,14 +482,17 @@ class GameViewController: CustomViewController {
         helpLabel.textColor = .white
         helpLabel.numberOfLines = 0
         helpLabel.alpha = 0
+        
         helpView.addSubview(helpLabel)
         helpView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.85)
         helpView.alpha = 0
         view.insertSubview(helpView, at: 1)
+        
         rigthControlButton.backgroundColor = #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5216298893)
         leftControlButton.backgroundColor =  #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5216298893)
         rigthControlButton.alpha = 0
         leftControlButton.alpha = 0
+        
         title = "Игра"
         
         UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut) {
@@ -494,16 +500,36 @@ class GameViewController: CustomViewController {
             self.helpLabel.alpha = 1
         }
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-            self.blinkButton(blinkedButton: self.leftControlButton) {
-                self.blinkButton(blinkedButton: self.rigthControlButton) {
-                    self.helpView.addGestureRecognizer(self.tapGestureRecognizer)
+        if let settingsData = userDefaults.value(forKey: .userSettings) as? Data {
+            do {
+                let userSettings = try JSONDecoder().decode(SettingsClass.self, from: settingsData)
+                switch userSettings.selectedTypeControll {
+                    case 0:
+                        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                            self.blinkButton(blinkedButton: self.leftControlButton) {
+                                self.blinkButton(blinkedButton: self.rigthControlButton) {
+                                    self.helpView.addGestureRecognizer(self.tapGestureRecognizer)
+                                }
+                            }
+                            timer.invalidate()
+                        }
+                    case 1:
+                        helpLabel.text = "Dodge traffic\nFor turns, rotate device\nTo start the game, tap on the screen"
+                        let rotationDeviceImageView = UIImageView()
+                        rotationDeviceImageView.image = UIImage(named: "rotate-arrow")
+                        rotationDeviceImageView.contentMode = .scaleAspectFill
+                        rotationDeviceImageView.frame.size = CGSize(width: 100, height: 100)
+                        rotationDeviceImageView.frame.origin = CGPoint(x: helpLabel.frame.origin.x + helpLabel.frame.width / 2 - rotationDeviceImageView.frame.width / 2, y: helpLabel.frame.maxY + 20)
+                        helpView.addSubview(rotationDeviceImageView)
+                        self.helpView.addGestureRecognizer(self.tapGestureRecognizer)
+                    default:
+                        print("Unknown type controll")
                 }
+            } catch {
+                print(error.localizedDescription)
             }
-            timer.invalidate()
         }
         
-
     }
     
     private func blinkButton(blinkedButton: UIButton, countBlink: Int = 1, completion: @escaping () -> ()) {
@@ -531,6 +557,7 @@ class GameViewController: CustomViewController {
             self.scoreLabel.alpha = 0
             self.menuButton.alpha = 0
         }
+        motionManager.stopAccelerometerUpdates()
         scoreTimer.invalidate()
         barrierTimer.invalidate()
         threeTimer.invalidate()
@@ -570,6 +597,7 @@ class GameViewController: CustomViewController {
     /// Продолжить  игру
     private func resumeGame() {
         statusGame = .play
+        startUpdateAcceleration()
         startScoreTimer()
         DispatchQueue.main.async { [self] in
             for tree in arrayThree.keys {
@@ -600,6 +628,7 @@ class GameViewController: CustomViewController {
     
     /// Поставить игру на паузу
     private func pauseGame() {
+        motionManager.stopAccelerometerUpdates()
         scoreTimer.invalidate()
         barrierTimer.invalidate()
         threeTimer.invalidate()
@@ -702,6 +731,9 @@ class GameViewController: CustomViewController {
                     firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth * 6, height: self.view.frame.height * multipleHeight)
                     firstNumberImage.text = arrayStartTimer[startTimerSeconds]
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] startTimer in
+                        if typeControll == 1 {
+                            startUpdateAcceleration()
+                        }
                         firstNumberImage.removeFromSuperview()
                         startThreeTimer()
                         startBarrierTimer()
@@ -879,11 +911,22 @@ class GameViewController: CustomViewController {
                 timeDuration = TimeInterval(userSettings.speedGame)
                 playerName = userSettings.playerName
                 selectedBarrier = userSettings.selectedBarrier
+                typeControll = userSettings.selectedTypeControll
             } catch {
                 print(error.localizedDescription)
             }
             
         }
+        
+        switch typeControll {
+            case 1:
+                self.rigthControlButton.isHidden = true
+                self.leftControlButton.isHidden = true
+            default:
+                self.rigthControlButton.isHidden = false
+                self.leftControlButton.isHidden = false
+        }
+        
         firstRoadImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 2)
         firstRoadImageView.contentMode = .scaleToFill
         self.view.insertSubview(firstRoadImageView, at: 0)
@@ -891,6 +934,31 @@ class GameViewController: CustomViewController {
         secondRoadImageView.frame = CGRect(x: 0, y: self.view.frame.origin.y - self.view.frame.height * 2, width: self.view.frame.width, height: self.view.frame.height * 2)
         secondRoadImageView.contentMode = .scaleToFill
         self.view.insertSubview(secondRoadImageView, at: 0)
+    }
+    
+    private func startUpdateAcceleration() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 1/20
+            motionManager.startAccelerometerUpdates(to: .main) { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                if let data = data {
+                    if Int(data.acceleration.x * 100) > 10 {
+                        self.moveCar(direction: .right)
+                    }
+                    if Int(data.acceleration.x * 100) < -10 {
+                        self.moveCar(direction: .left)
+                    }
+                    
+                    if Int(data.acceleration.x * 100) > -10 && Int(data.acceleration.x * 100) < 10 {
+                        self.returnedRotationCar()
+                    }
+                }
+            }
+        }
     }
     
 }

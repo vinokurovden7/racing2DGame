@@ -25,6 +25,7 @@ class SettingViewController: CustomViewController {
     @IBOutlet weak var speedGameLabel: UILabel!
     @IBOutlet weak var speedGameSlider: UISlider!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var typeControllSegmentedControll: UISegmentedControl!
     
     //MARK: Variables:
     private lazy var elementsArray = [playerNameLabel,
@@ -100,6 +101,9 @@ class SettingViewController: CustomViewController {
             userSettings.selectedCarImageName = selectedCarImageName
         }
         userSettings.speedGame = speedGameSlider.value.mapped(inMin: speedGameSlider.minimumValue, inMax: speedGameSlider.maximumValue, outMin: 2.5, outMax: 0.5)
+        
+        userSettings.selectedTypeControll = typeControllSegmentedControll.selectedSegmentIndex
+        
         let userSettingsData = try? JSONEncoder().encode(userSettings)
         userDefaults.setValue(userSettingsData, forKey: .userSettings)
         navigationController?.popViewController(animated: true)
@@ -224,6 +228,7 @@ class SettingViewController: CustomViewController {
                 guard let firstType = userSettings.selectedBarrier["barrier"], let secondType = userSettings.selectedBarrier["traffic"] else {return}
                 firstTypeBarrierSwich.isOn = firstType
                 secondTypeBarrierSwich.isOn = secondType
+                typeControllSegmentedControll.selectedSegmentIndex = userSettings.selectedTypeControll
             } catch {
                 print(error.localizedDescription)
             }

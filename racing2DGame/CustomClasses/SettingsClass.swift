@@ -11,4 +11,5 @@ class SettingsClass: Codable {
     var selectedCarImageName = "yellowUser_icon"
     var selectedBarrier: [String:Bool] = ["barrier" : true, "traffic" : true]
     var speedGame: Float = 1.5
+    var selectedTypeControll = 0
 }
