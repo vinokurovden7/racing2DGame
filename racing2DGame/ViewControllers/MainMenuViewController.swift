@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MainMenuViewController: CustomViewController {
 
@@ -14,23 +15,29 @@ class MainMenuViewController: CustomViewController {
     @IBOutlet weak var tableScoreButton: CustomButton!
     @IBOutlet weak var settingButton: CustomButton!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
+    //MARK: Variables:
     private let userDefaults = UserDefaults.standard
     enum OpeningScreen {
         case playScreen
         case tableScoreScreen
         case settingsScreen
     }
+    private let motionManager = CMMotionManager()
+    private var gyroMove = false
     
     //MARK: Life cycles:
     override func viewDidLoad() {
         super.viewDidLoad()
+        startAccelerometerUpdates()
         captionLabel.alpha = 0
         checkPlayerName {_ in}
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        motionManager.stopAccelerometerUpdates()
         navigationController?.setNavigationBarHidden(false, animated: false)
         captionLabel.alpha = 0
     }
@@ -177,7 +184,71 @@ class MainMenuViewController: CustomViewController {
         }
     }
     
-    
+    private func startAccelerometerUpdates() {
+        if motionManager.isGyroAvailable {
+            motionManager.gyroUpdateInterval = 1/40
+            motionManager.startGyroUpdates(to: .main) { gyroData, gyroError in
+                if let gyroError = gyroError {
+                    print(gyroError.localizedDescription)
+                    return
+                }
+                
+                if let gyroData = gyroData {
+                    if abs(Int(gyroData.rotationRate.x * 100)) > 20 || abs(Int(gyroData.rotationRate.y * 100)) > 20 {
+                        self.gyroMove = true
+                    } else {
+                        self.gyroMove = false
+                    }
+                }
+            }
+        }
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 1/20
+            motionManager.startAccelerometerUpdates(to: .main) { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                if let data = data {
+//                    print(data.acceleration.y * 100 + 60)
+                    if Int(data.acceleration.x * 100) >= 0 && Int(data.acceleration.x * 100) < 10 && self.gyroMove {
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.1) {
+                                self.backgroundImageView.frame.origin.x = CGFloat(data.acceleration.x * 100) - 20
+                            }
+                            
+                        }
+                    }
+                    
+                    if Int(data.acceleration.x * 100) <= 0 && Int(data.acceleration.x * 100) > -10 && self.gyroMove {
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.1) {
+                                self.backgroundImageView.frame.origin.x = CGFloat(data.acceleration.x * 100) - 20
+                            }
+                        }
+                    }
+                    
+                    if Int(data.acceleration.y * 100 + 60) >= 0 && Int(data.acceleration.y * 100 + 60) < 10 && self.gyroMove {
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.1) {
+                                self.backgroundImageView.frame.origin.y = CGFloat(data.acceleration.y * 100 + 60) - 20
+                            }
+                        }
+                    }
+
+                    if Int(data.acceleration.y * 100 + 60) <= 0 && Int(data.acceleration.y * 100 + 60) > -10 && self.gyroMove {
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.1) {
+                                self.backgroundImageView.frame.origin.y = CGFloat(data.acceleration.y * 100 + 60) - 20
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
 }
 
 
