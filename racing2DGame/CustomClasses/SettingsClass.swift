@@ -7,7 +7,7 @@
 
 import Foundation
 class SettingsClass: Codable {
-    var playerName = "User1"
+    var playerName = "Player"
     var selectedCarImageName = "yellowUser_icon"
     var selectedBarrier: [String:Bool] = ["barrier" : true, "traffic" : true]
     var speedGame: Float = 1.5

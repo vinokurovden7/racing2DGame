@@ -167,6 +167,7 @@ class GameViewController: CustomViewController {
     
     // Показать меню паузы
     @IBAction func showMenuButtonAction(_ sender: UIButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         showPauseMenu(xPoint: sender.frame.maxX, yPoint: sender.frame.maxY)
     }
     
@@ -605,7 +606,9 @@ class GameViewController: CustomViewController {
     /// Продолжить  игру
     private func resumeGame() {
         statusGame = .play
-        startUpdateAcceleration()
+        if typeControll == 1 {
+            startUpdateAcceleration()
+        }
         startScoreTimer()
         DispatchQueue.main.async { [self] in
             for tree in arrayThree.keys {
