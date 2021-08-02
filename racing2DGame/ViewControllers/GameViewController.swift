@@ -58,6 +58,8 @@ class GameViewController: CustomViewController {
     private var barrierTimer = Timer()
     private let motionManager = CMMotionManager()
     private var typeControll = 0
+    private let soundCarCrashEffectsPlayer = SoundPlayer()
+    private let soundEffectsPlayer = SoundPlayer()
     
     
     private enum DirectionRotation {
@@ -88,6 +90,7 @@ class GameViewController: CustomViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopGame()
+        SoundPlayer.musicPlayer.playSound(typeSound: .menu)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -113,6 +116,7 @@ class GameViewController: CustomViewController {
     }
     
     @objc func resumeMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             self.statusGame = .resume
             self.checkStatusGame()
@@ -120,6 +124,7 @@ class GameViewController: CustomViewController {
     }
     
     @objc func restartMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             UIView.animate(withDuration: 0.5) {
                 self.menuButton.alpha = 0
@@ -130,6 +135,7 @@ class GameViewController: CustomViewController {
     }
     
     @objc func returnToMainMenuMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             self.statusGame = .stop
             self.checkStatusGame()
@@ -425,6 +431,8 @@ class GameViewController: CustomViewController {
     
     /// Установить режим Game over
     private func setGameOverMode() {
+        self.soundCarCrashEffectsPlayer.playSound(typeSound: .carCrash)
+        SoundPlayer.musicPlayer.stopPlaying()
         statusGame = .pause
         returnedRotationCar()
         var usersScoreArray: [GameScoreClass] = []
@@ -695,6 +703,7 @@ class GameViewController: CustomViewController {
     
     /// Запуск таймера перед началом игры
     private func showStartTimer() {
+        SoundPlayer.musicPlayer.playSound(typeSound: .game)
         startTimerSeconds = 0
         firstNumberImage.text = arrayStartTimer[startTimerSeconds]
         firstNumberImage.frame.origin = CGPoint(x: self.view.frame.maxX, y: self.view.center.y - 25)
@@ -703,6 +712,20 @@ class GameViewController: CustomViewController {
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [self] _ in
             let centerPointX = self.view.center.x - 12.5
             moveNumber(pointX: centerPointX)
+        }
+    }
+    
+    private func startGame() {
+        if typeControll == 1 {
+            startUpdateAcceleration()
+        }
+        firstNumberImage.removeFromSuperview()
+        startThreeTimer()
+        startBarrierTimer()
+        startScoreTimer()
+        UIView.animate(withDuration: 0.5) {
+            self.scoreLabel.alpha = 1
+            self.menuButton.alpha = 1
         }
     }
     
@@ -731,17 +754,7 @@ class GameViewController: CustomViewController {
                     firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth * 6, height: self.view.frame.height * multipleHeight)
                     firstNumberImage.text = arrayStartTimer[startTimerSeconds]
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] startTimer in
-                        if typeControll == 1 {
-                            startUpdateAcceleration()
-                        }
-                        firstNumberImage.removeFromSuperview()
-                        startThreeTimer()
-                        startBarrierTimer()
-                        startScoreTimer()
-                        UIView.animate(withDuration: 0.5) {
-                            self.scoreLabel.alpha = 1
-                            self.menuButton.alpha = 1
-                        }
+                        startGame()
                     }
                     let centerPointX = self.view.center.x - self.view.frame.width * multipleWidth * 6 / 2
                     moveNumber(pointX: centerPointX)

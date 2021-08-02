@@ -26,6 +26,9 @@ class SettingViewController: CustomViewController {
     @IBOutlet weak var speedGameSlider: UISlider!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var typeControllSegmentedControll: UISegmentedControl!
+    @IBOutlet weak var volumeMusicSlider: UISlider!
+    @IBOutlet weak var volumeSoundEffectsSlider: UISlider!
+    @IBOutlet weak var volumeButtonSelectionSlider: UISlider!
     
     //MARK: Variables:
     private lazy var elementsArray = [playerNameLabel,
@@ -62,7 +65,7 @@ class SettingViewController: CustomViewController {
                                             13:"whiteRaceCar",
                                             14:"yellowCar"]
     private let userDefaults = UserDefaults.standard
-//    private var speedGame: Float = 0
+    private let soundEffectsPlayer = SoundPlayer()
     
     private enum DirectionCahngeCar {
         case next
@@ -88,45 +91,55 @@ class SettingViewController: CustomViewController {
     
     //MARK: IBActions:
     @IBAction func closeScreenButtonAction(_ sender: UIButton) {
-        if playerNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            self.showAlert(titleAlert: "Error", message: "Please, enter player name", buttons: [("Ok", .default)], completion: {_ in})
-            return
-        }
-        let userSettings = SettingsClass()
-        if let palyerName = playerNameTextField.text {
-            userSettings.playerName = palyerName
-        }
-        userSettings.selectedBarrier = ["barrier": firstTypeBarrierSwich.isOn, "traffic": secondTypeBarrierSwich.isOn]
-        if let selectedCarImageName = arrayTrafficCarNamesIcon[selectedCarImage] {
-            userSettings.selectedCarImageName = selectedCarImageName
-        }
-        userSettings.speedGame = speedGameSlider.value.mapped(inMin: speedGameSlider.minimumValue, inMax: speedGameSlider.maximumValue, outMin: 2.5, outMax: 0.5)
-        
-        userSettings.selectedTypeControll = typeControllSegmentedControll.selectedSegmentIndex
-        
-        let userSettingsData = try? JSONEncoder().encode(userSettings)
-        userDefaults.setValue(userSettingsData, forKey: .userSettings)
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
+        saveSettings()
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func leftChangeCarButtonAction(_ sender: UIButton) {
+        DispatchQueue.global().async {
+            self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        }
         changeCarImage(direction: .previous)
     }
     
     @IBAction func rightChangeCarButtonAction(_ sender: UIButton) {
+        DispatchQueue.global().async {
+            self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        }
         changeCarImage(direction: .next)
     }
     
     @IBAction func firstBarrierSwichAction(_ sender: UISwitch) {
+        DispatchQueue.global().async {
+            self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        }
         if !secondTypeBarrierSwich.isOn && !sender.isOn {
             secondTypeBarrierSwich.isOn = true
         }
     }
     
     @IBAction func secondBarrierSwitchAction(_ sender: UISwitch) {
+        DispatchQueue.global().async {
+            self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        }
         if !firstTypeBarrierSwich.isOn && !sender.isOn {
             firstTypeBarrierSwich.isOn = true
         }
+    }
+    
+    @IBAction func swichControlTypeAction(_ sender: UISegmentedControl) {
+        DispatchQueue.global().async {
+            self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        }
+    }
+    
+    @IBAction func volumeMusicSliderAction(_ sender: UISlider) {
+        SoundPlayer.musicPlayer.setVolume(volume: sender.value)
+    }
+    
+    @IBAction func volumeButtonSelectionSliderAction(_ sender: UISlider) {
+        saveSettings()
     }
     
     //MARK: Custom Func:
@@ -229,6 +242,10 @@ class SettingViewController: CustomViewController {
                 firstTypeBarrierSwich.isOn = firstType
                 secondTypeBarrierSwich.isOn = secondType
                 typeControllSegmentedControll.selectedSegmentIndex = userSettings.selectedTypeControll
+                soundEffectsPlayer.setVolume(volume: userSettings.effectsVolume)
+                volumeMusicSlider.value = userSettings.musicVolume
+                volumeSoundEffectsSlider.value = userSettings.effectsVolume
+                volumeButtonSelectionSlider.value = userSettings.selectButtonVolume
             } catch {
                 print(error.localizedDescription)
             }
@@ -245,6 +262,30 @@ class SettingViewController: CustomViewController {
         animateAllElements()
     }
 
+    private func saveSettings() {
+        if playerNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+            self.showAlert(titleAlert: "Error", message: "Please, enter player name", buttons: [("Ok", .default)], completion: {_ in})
+            return
+        }
+        let userSettings = SettingsClass()
+        if let palyerName = playerNameTextField.text {
+            userSettings.playerName = palyerName
+        }
+        userSettings.selectedBarrier = ["barrier": firstTypeBarrierSwich.isOn, "traffic": secondTypeBarrierSwich.isOn]
+        if let selectedCarImageName = arrayTrafficCarNamesIcon[selectedCarImage] {
+            userSettings.selectedCarImageName = selectedCarImageName
+        }
+        userSettings.speedGame = speedGameSlider.value.mapped(inMin: speedGameSlider.minimumValue, inMax: speedGameSlider.maximumValue, outMin: 2.5, outMax: 0.5)
+        
+        userSettings.selectedTypeControll = typeControllSegmentedControll.selectedSegmentIndex
+        
+        userSettings.musicVolume = volumeMusicSlider.value
+        userSettings.effectsVolume = volumeSoundEffectsSlider.value
+        userSettings.selectButtonVolume = volumeButtonSelectionSlider.value
+        
+        let userSettingsData = try? JSONEncoder().encode(userSettings)
+        userDefaults.setValue(userSettingsData, forKey: .userSettings)
+    }
     
     //MARK: OBJC func:
     @objc private func tapGestureAction() {

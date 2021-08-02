@@ -12,10 +12,28 @@ class TableScoreViewController: CustomViewController {
     private let userDefaults = UserDefaults.standard
     private var usersScoreArray: [GameScoreClass] = []
     @IBOutlet weak var gameScoreTableView: UITableView!
+    private let soundEffectsPlayer = SoundPlayer()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        firstSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    private func firstSetup() {
         title = "Table score"
         
         gameScoreTableView.delegate = self
@@ -41,16 +59,7 @@ class TableScoreViewController: CustomViewController {
         if let font = UIFont.chernobylFont(of: 25) {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: font]
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        
     }
     
 }

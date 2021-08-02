@@ -12,4 +12,7 @@ class SettingsClass: Codable {
     var selectedBarrier: [String:Bool] = ["barrier" : true, "traffic" : true]
     var speedGame: Float = 1.5
     var selectedTypeControll = 0
+    var musicVolume: Float = 50.0
+    var effectsVolume: Float = 50.0
+    var selectButtonVolume: Float = 50.0
 }

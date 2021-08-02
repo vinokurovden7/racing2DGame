@@ -20,54 +20,54 @@
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="racing2DGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundMenu" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-An-tTX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydC-UG-9gz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q51-Fp-FZv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bC-hv-nOT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNZ-vN-nYM">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="795.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1364.3333333333333"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowUserCar_xenon_greenNeon_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-ee-z5h">
-                                                <rect key="frame" x="100" y="166.66666666666663" width="214" height="200"/>
+                                                <rect key="frame" x="100" y="206.66666666666663" width="214" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="QpZ-6m-rg5"/>
                                                 </constraints>
                                             </imageView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-Hf-kU0">
-                                                <rect key="frame" x="286" y="550.66666666666663" width="51" height="31"/>
+                                                <rect key="frame" x="286" y="630.66666666666663" width="51" height="31"/>
                                                 <color key="onTintColor" systemColor="systemTealColor"/>
                                                 <connections>
                                                     <action selector="secondBarrierSwitchAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="EY3-lu-38x"/>
                                                 </connections>
                                             </switch>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-V0-Cxq">
-                                                <rect key="frame" x="275.66666666666669" y="453" width="70" height="70"/>
+                                                <rect key="frame" x="275.66666666666669" y="533" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="C3k-Hm-G1C"/>
                                                     <constraint firstAttribute="width" constant="70" id="Wgo-5S-9XS"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select barrier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFa-LG-9MK">
-                                                <rect key="frame" x="20" y="386.66666666666669" width="374" height="26.333333333333314"/>
+                                                <rect key="frame" x="20" y="466.66666666666669" width="374" height="26.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wG6-Pg-gsI">
-                                                <rect key="frame" x="79" y="550.66666666666663" width="51" height="31"/>
+                                                <rect key="frame" x="79" y="630.66666666666663" width="51" height="31"/>
                                                 <color key="onTintColor" systemColor="systemTealColor"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -75,7 +75,7 @@
                                                 </connections>
                                             </switch>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Road_Barrier" translatesAutoresizingMaskIntoConstraints="NO" id="Qae-Wx-8ue">
-                                                <rect key="frame" x="68.666666666666671" y="453" width="70.000000000000014" height="70"/>
+                                                <rect key="frame" x="68.666666666666671" y="533" width="70.000000000000014" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="bd5-WE-BCW"/>
                                                     <constraint firstAttribute="height" constant="70" id="mSk-fd-Evw"/>
@@ -93,13 +93,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select car" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BM9-0E-tnd">
-                                                <rect key="frame" x="20" y="120.33333333333333" width="374" height="26.333333333333329"/>
+                                                <rect key="frame" x="20" y="160.33333333333334" width="374" height="26.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1D-dN-DYp" customClass="CustomButton" customModule="racing2DGame" customModuleProvider="target">
-                                                <rect key="frame" x="334" y="242.33333333333337" width="60" height="49"/>
+                                                <rect key="frame" x="334" y="282.33333333333331" width="60" height="49"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="47"/>
@@ -109,7 +109,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owo-wo-gRc" customClass="CustomButton" customModule="racing2DGame" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="242.33333333333337" width="60" height="49"/>
+                                                <rect key="frame" x="20" y="282.33333333333331" width="60" height="49"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="47"/>
@@ -138,83 +138,159 @@
                                                     <action selector="closeScreenButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yih-Qo-9Ed"/>
                                                 </connections>
                                             </button>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="a8O-ka-qtC">
-                                                <rect key="frame" x="18" y="648" width="378" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="a8O-ka-qtC">
+                                                <rect key="frame" x="18" y="768" width="378" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <imageReference key="minimumValueImage" image="minus" catalog="system" symbolScale="large"/>
-                                                <imageReference key="maximumValueImage" image="plus" catalog="system" symbolScale="large"/>
+                                                <imageReference key="minimumValueImage" image="tortoise.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="hare.fill" catalog="system" symbolScale="large"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twv-2x-fa8">
-                                                <rect key="frame" x="139" y="601.66666666666663" width="136" height="26.333333333333371"/>
+                                                <rect key="frame" x="139" y="721.66666666666663" width="136" height="26.333333333333371"/>
                                                 <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select control type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKl-pp-0kX">
-                                                <rect key="frame" x="84.333333333333329" y="698" width="245.66666666666669" height="26.333333333333371"/>
+                                                <rect key="frame" x="84.333333333333329" y="858" width="245.66666666666669" height="26.333333333333371"/>
                                                 <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aeo-fh-mSU">
-                                                <rect key="frame" x="20" y="744.33333333333337" width="374" height="32"/>
+                                                <rect key="frame" x="20" y="904.33333333333337" width="374" height="32"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <segments>
                                                     <segment title="Buttons"/>
                                                     <segment title="Rotate device"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="swichControlTypeAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="X8i-uE-Kmx"/>
+                                                </connections>
                                             </segmentedControl>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sii-cT-ksa">
+                                                <rect key="frame" x="18" y="1041.6666666666667" width="378" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="volumeMusicSliderAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="pBt-KR-g1h"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ld-52-wOT">
+                                                <rect key="frame" x="126.66666666666669" y="995.33333333333337" width="161" height="26.333333333333371"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-t9-X5H">
+                                                <rect key="frame" x="18" y="1178" width="378" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume sound effects" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRN-eU-Igd">
+                                                <rect key="frame" x="74.666666666666686" y="1131.6666666666667" width="265" height="26.333333333333258"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-Ze-bwb">
+                                                <rect key="frame" x="18" y="1314.3333333333333" width="378" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="volumeButtonSelectionSliderAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="cZc-er-h6z"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume button selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSV-tp-cCK">
+                                                <rect key="frame" x="56.333333333333343" y="1268" width="301.33333333333326" height="26.333333333333258"/>
+                                                <fontDescription key="fontDescription" name="Chernobyl" family="Chernobyl" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="AIF-Ze-bwb" firstAttribute="top" secondItem="wSV-tp-cCK" secondAttribute="bottom" constant="20" id="0Iv-Ga-jtd"/>
+                                            <constraint firstAttribute="trailing" secondItem="SPG-t9-X5H" secondAttribute="trailing" constant="20" symbolic="YES" id="0hE-ZT-fOX"/>
                                             <constraint firstItem="Obl-V0-Cxq" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" multiplier="1.5" id="29r-BM-to1"/>
                                             <constraint firstItem="7dz-ee-z5h" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="100" id="2Gp-xz-ng0"/>
+                                            <constraint firstItem="wSV-tp-cCK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="3UG-Wr-Aaa"/>
                                             <constraint firstItem="YKl-pp-0kX" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="3UL-U5-haR"/>
                                             <constraint firstItem="Obl-V0-Cxq" firstAttribute="top" secondItem="zFa-LG-9MK" secondAttribute="bottom" constant="40" id="4rk-5q-zfD"/>
-                                            <constraint firstItem="BM9-0E-tnd" firstAttribute="top" secondItem="wFA-vA-qdZ" secondAttribute="bottom" constant="20" id="6o2-fP-azE"/>
+                                            <constraint firstItem="uRN-eU-Igd" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="5EF-Jz-fVD"/>
+                                            <constraint firstItem="BM9-0E-tnd" firstAttribute="top" secondItem="wFA-vA-qdZ" secondAttribute="bottom" constant="60" id="6o2-fP-azE"/>
                                             <constraint firstItem="BM9-0E-tnd" firstAttribute="trailing" secondItem="wFA-vA-qdZ" secondAttribute="trailing" id="7Lc-ma-iHb"/>
                                             <constraint firstItem="a8O-ka-qtC" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="9Ia-ly-rBm"/>
                                             <constraint firstItem="Owo-wo-gRc" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="9It-0T-cKU"/>
                                             <constraint firstItem="7dz-ee-z5h" firstAttribute="leading" secondItem="Owo-wo-gRc" secondAttribute="trailing" constant="20" id="Aqm-kQ-HC2"/>
                                             <constraint firstItem="c1D-dN-DYp" firstAttribute="leading" secondItem="7dz-ee-z5h" secondAttribute="trailing" constant="20" id="Bnu-Hk-noA"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="twv-2x-fa8" secondAttribute="trailing" constant="20" id="CN0-TH-Dde"/>
-                                            <constraint firstItem="YKl-pp-0kX" firstAttribute="top" secondItem="a8O-ka-qtC" secondAttribute="bottom" constant="20" id="DxL-d0-PJQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="aeo-fh-mSU" secondAttribute="bottom" constant="20" id="FbT-ea-vmM"/>
+                                            <constraint firstItem="SPG-t9-X5H" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" symbolic="YES" id="Cbl-Ba-Poz"/>
+                                            <constraint firstItem="YKl-pp-0kX" firstAttribute="top" secondItem="a8O-ka-qtC" secondAttribute="bottom" constant="60" id="DxL-d0-PJQ"/>
+                                            <constraint firstItem="4ld-52-wOT" firstAttribute="top" secondItem="aeo-fh-mSU" secondAttribute="bottom" constant="60" id="FcB-cx-nSh"/>
+                                            <constraint firstAttribute="trailing" secondItem="sii-cT-ksa" secondAttribute="trailing" constant="20" symbolic="YES" id="GCM-Wi-K7z"/>
+                                            <constraint firstItem="AIF-Ze-bwb" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" symbolic="YES" id="GXJ-Wp-GgT"/>
                                             <constraint firstItem="a8O-ka-qtC" firstAttribute="top" secondItem="twv-2x-fa8" secondAttribute="bottom" constant="20" id="IhH-g8-QJ0"/>
+                                            <constraint firstItem="4ld-52-wOT" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="KY7-zU-6gD"/>
                                             <constraint firstItem="aeo-fh-mSU" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="LjS-Zj-RBi"/>
                                             <constraint firstAttribute="trailing" secondItem="a8O-ka-qtC" secondAttribute="trailing" constant="20" id="Mfn-p8-Maf"/>
+                                            <constraint firstAttribute="trailing" secondItem="AIF-Ze-bwb" secondAttribute="trailing" constant="20" symbolic="YES" id="Mu8-Xy-EWP"/>
                                             <constraint firstItem="K6G-El-7kF" firstAttribute="top" secondItem="GNZ-vN-nYM" secondAttribute="top" constant="20" id="O4c-m8-ofl"/>
                                             <constraint firstItem="wG6-Pg-gsI" firstAttribute="centerX" secondItem="Qae-Wx-8ue" secondAttribute="centerX" id="O5S-q0-cUA"/>
                                             <constraint firstAttribute="trailing" secondItem="c1D-dN-DYp" secondAttribute="trailing" constant="20" id="P9s-pU-EBH"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YKl-pp-0kX" secondAttribute="trailing" constant="20" id="PlQ-Cy-mV0"/>
                                             <constraint firstAttribute="trailing" secondItem="sEd-1z-zCz" secondAttribute="trailing" constant="20" id="SNS-Jm-WRx"/>
                                             <constraint firstItem="wG6-Pg-gsI" firstAttribute="top" secondItem="Qae-Wx-8ue" secondAttribute="bottom" constant="27.5" id="TKJ-Il-kYC"/>
+                                            <constraint firstAttribute="bottom" secondItem="AIF-Ze-bwb" secondAttribute="bottom" constant="20" id="Tai-Ja-yh1"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uRN-eU-Igd" secondAttribute="trailing" constant="20" id="Uiw-mG-4Ut"/>
+                                            <constraint firstItem="uRN-eU-Igd" firstAttribute="top" secondItem="sii-cT-ksa" secondAttribute="bottom" constant="60" id="Ulf-No-lZ6"/>
                                             <constraint firstAttribute="trailing" secondItem="zFa-LG-9MK" secondAttribute="trailing" constant="20" id="V3n-2z-9P1"/>
                                             <constraint firstAttribute="trailing" secondItem="7dz-ee-z5h" secondAttribute="trailing" constant="100" id="Wdg-AY-GYQ"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wSV-tp-cCK" secondAttribute="trailing" constant="20" id="XHy-r6-xjd"/>
                                             <constraint firstItem="0qb-Hf-kU0" firstAttribute="top" secondItem="Obl-V0-Cxq" secondAttribute="bottom" constant="27.5" id="XKJ-i4-cag"/>
+                                            <constraint firstItem="SPG-t9-X5H" firstAttribute="top" secondItem="uRN-eU-Igd" secondAttribute="bottom" constant="20" id="XSU-KW-3In"/>
                                             <constraint firstItem="K6G-El-7kF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="Xwd-iu-5cH"/>
                                             <constraint firstItem="wFA-vA-qdZ" firstAttribute="top" secondItem="K6G-El-7kF" secondAttribute="bottom" constant="20" id="YBU-uS-4CI"/>
                                             <constraint firstItem="aeo-fh-mSU" firstAttribute="top" secondItem="YKl-pp-0kX" secondAttribute="bottom" constant="20" id="Yx5-O8-IwJ"/>
+                                            <constraint firstItem="uRN-eU-Igd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="Yze-0s-4my"/>
                                             <constraint firstItem="YKl-pp-0kX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="arM-DO-6Nz"/>
                                             <constraint firstItem="sEd-1z-zCz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K6G-El-7kF" secondAttribute="trailing" constant="20" id="arj-d0-W5i"/>
-                                            <constraint firstItem="twv-2x-fa8" firstAttribute="top" secondItem="wG6-Pg-gsI" secondAttribute="bottom" constant="20" id="brL-dk-7Fu"/>
+                                            <constraint firstItem="twv-2x-fa8" firstAttribute="top" secondItem="wG6-Pg-gsI" secondAttribute="bottom" constant="60" id="brL-dk-7Fu"/>
                                             <constraint firstAttribute="trailing" secondItem="wFA-vA-qdZ" secondAttribute="trailing" constant="20" id="cC3-6m-G07"/>
                                             <constraint firstAttribute="trailing" secondItem="aeo-fh-mSU" secondAttribute="trailing" constant="20" id="djl-ED-Wa7"/>
+                                            <constraint firstItem="sii-cT-ksa" firstAttribute="top" secondItem="4ld-52-wOT" secondAttribute="bottom" constant="20" id="dkF-Xp-X5y"/>
                                             <constraint firstItem="zFa-LG-9MK" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="fWt-Ny-hY5"/>
                                             <constraint firstItem="7dz-ee-z5h" firstAttribute="top" secondItem="BM9-0E-tnd" secondAttribute="bottom" constant="20" id="feP-51-oz3"/>
                                             <constraint firstItem="Owo-wo-gRc" firstAttribute="centerY" secondItem="7dz-ee-z5h" secondAttribute="centerY" id="gJ5-FU-iG1"/>
                                             <constraint firstItem="twv-2x-fa8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="iZw-YN-tfd"/>
                                             <constraint firstItem="c1D-dN-DYp" firstAttribute="centerY" secondItem="7dz-ee-z5h" secondAttribute="centerY" id="kJV-dc-6Ih"/>
                                             <constraint firstItem="wFA-vA-qdZ" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="lUQ-pi-GDI"/>
+                                            <constraint firstItem="4ld-52-wOT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" id="nW5-sY-869"/>
                                             <constraint firstItem="Qae-Wx-8ue" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" multiplier="0.5" id="ntG-wt-mrX"/>
+                                            <constraint firstItem="wSV-tp-cCK" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="o1P-aa-855"/>
                                             <constraint firstItem="Qae-Wx-8ue" firstAttribute="top" secondItem="zFa-LG-9MK" secondAttribute="bottom" constant="40" id="piy-S6-o2K"/>
-                                            <constraint firstItem="zFa-LG-9MK" firstAttribute="top" secondItem="7dz-ee-z5h" secondAttribute="bottom" constant="20" id="rFk-Zb-KmW"/>
+                                            <constraint firstItem="zFa-LG-9MK" firstAttribute="top" secondItem="7dz-ee-z5h" secondAttribute="bottom" constant="60" id="rFk-Zb-KmW"/>
                                             <constraint firstItem="0qb-Hf-kU0" firstAttribute="centerX" secondItem="Obl-V0-Cxq" secondAttribute="centerX" id="sO6-4b-vmX"/>
+                                            <constraint firstItem="wSV-tp-cCK" firstAttribute="top" secondItem="SPG-t9-X5H" secondAttribute="bottom" constant="60" id="tRp-wk-oCj"/>
                                             <constraint firstItem="zFa-LG-9MK" firstAttribute="centerX" secondItem="GNZ-vN-nYM" secondAttribute="centerX" id="uAC-nG-Phw"/>
+                                            <constraint firstItem="sii-cT-ksa" firstAttribute="leading" secondItem="GNZ-vN-nYM" secondAttribute="leading" constant="20" symbolic="YES" id="ubt-Jw-mjF"/>
                                             <constraint firstItem="sEd-1z-zCz" firstAttribute="centerY" secondItem="K6G-El-7kF" secondAttribute="centerY" id="yF0-jP-WfX"/>
                                             <constraint firstItem="BM9-0E-tnd" firstAttribute="leading" secondItem="wFA-vA-qdZ" secondAttribute="leading" id="zfZ-n9-QYc"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ld-52-wOT" secondAttribute="trailing" constant="20" id="zo9-tH-BPY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -246,7 +322,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2bC-hv-nOT" secondAttribute="bottom" id="yMy-JL-HWP"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1250"/>
+                    <size key="freeformSize" width="414" height="1550"/>
                     <connections>
                         <outlet property="closeScreenButton" destination="sEd-1z-zCz" id="Lbt-Fn-f1v"/>
                         <outlet property="firstTypeBarrierImageView" destination="Qae-Wx-8ue" id="R4S-Bl-oh1"/>
@@ -264,6 +340,9 @@
                         <outlet property="speedGameLabel" destination="twv-2x-fa8" id="M8b-wm-oeZ"/>
                         <outlet property="speedGameSlider" destination="a8O-ka-qtC" id="7tP-Pd-afP"/>
                         <outlet property="typeControllSegmentedControll" destination="aeo-fh-mSU" id="Z2I-U7-dpg"/>
+                        <outlet property="volumeButtonSelectionSlider" destination="AIF-Ze-bwb" id="pVu-TY-gBg"/>
+                        <outlet property="volumeMusicSlider" destination="sii-cT-ksa" id="YOU-Q7-I2v"/>
+                        <outlet property="volumeSoundEffectsSlider" destination="SPG-t9-X5H" id="cgQ-0k-TYC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,8 +356,10 @@
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="backgroundMenu" width="1080" height="1917"/>
         <image name="car_icon" width="256" height="256"/>
-        <image name="minus" catalog="system" width="128" height="24"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="hare.fill" catalog="system" width="128" height="91"/>
+        <image name="tortoise.fill" catalog="system" width="128" height="66"/>
+        <image name="volume.1.fill" catalog="system" width="128" height="108"/>
+        <image name="volume.3.fill" catalog="system" width="128" height="86"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="yellowUserCar_xenon_greenNeon_icon" width="180" height="395"/>
         <namedColor name="AccentColor">

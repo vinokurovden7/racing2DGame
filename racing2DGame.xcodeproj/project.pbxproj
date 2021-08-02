@@ -20,6 +20,19 @@
 		92241B6026777C45002051F9 /* GameScoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92241B5F26777C45002051F9 /* GameScoreClass.swift */; };
 		923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */; };
 		923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDB26B6D395002AAB23 /* Chernobyl.otf */; };
+		923F100C26B7C3F4002AAB23 /* menu_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100626B7C3F3002AAB23 /* menu_4.mp3 */; };
+		923F100D26B7C3F4002AAB23 /* menu_6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100726B7C3F3002AAB23 /* menu_6.mp3 */; };
+		923F100E26B7C3F4002AAB23 /* menu_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100826B7C3F3002AAB23 /* menu_2.mp3 */; };
+		923F100F26B7C3F4002AAB23 /* menu_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100926B7C3F3002AAB23 /* menu_3.mp3 */; };
+		923F101026B7C3F4002AAB23 /* menu_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100A26B7C3F3002AAB23 /* menu_5.mp3 */; };
+		923F101126B7C3F4002AAB23 /* menu_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100B26B7C3F4002AAB23 /* menu_1.mp3 */; };
+		923F101426B7C3FD002AAB23 /* crashCar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101226B7C3FD002AAB23 /* crashCar.mp3 */; };
+		923F101526B7C3FD002AAB23 /* selectButtonMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */; };
+		923F101A26B7C408002AAB23 /* game_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101626B7C407002AAB23 /* game_1.mp3 */; };
+		923F101B26B7C408002AAB23 /* game_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101726B7C407002AAB23 /* game_3.mp3 */; };
+		923F101C26B7C408002AAB23 /* game_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101826B7C408002AAB23 /* game_4.mp3 */; };
+		923F101D26B7C408002AAB23 /* game_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101926B7C408002AAB23 /* game_2.mp3 */; };
+		923F101F26B7C433002AAB23 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F101E26B7C433002AAB23 /* SoundPlayer.swift */; };
 		923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */; };
 		923F88D12692D23900FF9EAC /* GameScoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */; };
 		923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */; };
@@ -52,6 +65,19 @@
 		92241B5F26777C45002051F9 /* GameScoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreClass.swift; sourceTree = "<group>"; };
 		923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pumpkin Pancakes.ttf"; sourceTree = "<group>"; };
 		923F0FDB26B6D395002AAB23 /* Chernobyl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chernobyl.otf; sourceTree = "<group>"; };
+		923F100626B7C3F3002AAB23 /* menu_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_4.mp3; sourceTree = "<group>"; };
+		923F100726B7C3F3002AAB23 /* menu_6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_6.mp3; sourceTree = "<group>"; };
+		923F100826B7C3F3002AAB23 /* menu_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_2.mp3; sourceTree = "<group>"; };
+		923F100926B7C3F3002AAB23 /* menu_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_3.mp3; sourceTree = "<group>"; };
+		923F100A26B7C3F3002AAB23 /* menu_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_5.mp3; sourceTree = "<group>"; };
+		923F100B26B7C3F4002AAB23 /* menu_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_1.mp3; sourceTree = "<group>"; };
+		923F101226B7C3FD002AAB23 /* crashCar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crashCar.mp3; sourceTree = "<group>"; };
+		923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = selectButtonMenu.mp3; sourceTree = "<group>"; };
+		923F101626B7C407002AAB23 /* game_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_1.mp3; sourceTree = "<group>"; };
+		923F101726B7C407002AAB23 /* game_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_3.mp3; sourceTree = "<group>"; };
+		923F101826B7C408002AAB23 /* game_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_4.mp3; sourceTree = "<group>"; };
+		923F101926B7C408002AAB23 /* game_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_2.mp3; sourceTree = "<group>"; };
+		923F101E26B7C433002AAB23 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableScoreViewController.storyboard; sourceTree = "<group>"; };
 		923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreViewCell.swift; sourceTree = "<group>"; };
 		923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScoreViewCell.xib; sourceTree = "<group>"; };
@@ -98,6 +124,7 @@
 		920A204D2642ED2900AD7A26 /* racing2DGame */ = {
 			isa = PBXGroup;
 			children = (
+				923F100226B7C3BD002AAB23 /* Sounds */,
 				92FDD9902663E41700D42280 /* fonts */,
 				92B16557265E3E48004BF1B4 /* Extensions */,
 				923F88DB26934D9F00FF9EAC /* DefaultClasses */,
@@ -110,6 +137,49 @@
 				920A205C2642ED2A00AD7A26 /* Info.plist */,
 			);
 			path = racing2DGame;
+			sourceTree = "<group>";
+		};
+		923F100226B7C3BD002AAB23 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				923F100526B7C3D5002AAB23 /* Effects */,
+				923F100426B7C3D0002AAB23 /* Game */,
+				923F100326B7C3C3002AAB23 /* Menu */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		923F100326B7C3C3002AAB23 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				923F100B26B7C3F4002AAB23 /* menu_1.mp3 */,
+				923F100826B7C3F3002AAB23 /* menu_2.mp3 */,
+				923F100926B7C3F3002AAB23 /* menu_3.mp3 */,
+				923F100626B7C3F3002AAB23 /* menu_4.mp3 */,
+				923F100A26B7C3F3002AAB23 /* menu_5.mp3 */,
+				923F100726B7C3F3002AAB23 /* menu_6.mp3 */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		923F100426B7C3D0002AAB23 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				923F101626B7C407002AAB23 /* game_1.mp3 */,
+				923F101926B7C408002AAB23 /* game_2.mp3 */,
+				923F101726B7C407002AAB23 /* game_3.mp3 */,
+				923F101826B7C408002AAB23 /* game_4.mp3 */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		923F100526B7C3D5002AAB23 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				923F101226B7C3FD002AAB23 /* crashCar.mp3 */,
+				923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 		923F88DB26934D9F00FF9EAC /* DefaultClasses */ = {
@@ -165,6 +235,7 @@
 				92241B5F26777C45002051F9 /* GameScoreClass.swift */,
 				92696A142667A8A500F2B540 /* CustomButton.swift */,
 				92B1655A265E66DE004BF1B4 /* Game.swift */,
+				923F101E26B7C433002AAB23 /* SoundPlayer.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -251,13 +322,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923F101C26B7C408002AAB23 /* game_4.mp3 in Resources */,
+				923F100F26B7C3F4002AAB23 /* menu_3.mp3 in Resources */,
+				923F100C26B7C3F4002AAB23 /* menu_4.mp3 in Resources */,
 				920A205B2642ED2A00AD7A26 /* LaunchScreen.storyboard in Resources */,
+				923F101526B7C3FD002AAB23 /* selectButtonMenu.mp3 in Resources */,
 				923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */,
+				923F101426B7C3FD002AAB23 /* crashCar.mp3 in Resources */,
 				920A20582642ED2A00AD7A26 /* Assets.xcassets in Resources */,
+				923F100D26B7C3F4002AAB23 /* menu_6.mp3 in Resources */,
+				923F101B26B7C408002AAB23 /* game_3.mp3 in Resources */,
 				92696A3B266891D300F2B540 /* Settings.storyboard in Resources */,
+				923F100E26B7C3F4002AAB23 /* menu_2.mp3 in Resources */,
 				920A20562642ED2900AD7A26 /* Main.storyboard in Resources */,
+				923F101126B7C3F4002AAB23 /* menu_1.mp3 in Resources */,
 				923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */,
+				923F101D26B7C408002AAB23 /* game_2.mp3 in Resources */,
 				923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */,
+				923F101026B7C3F4002AAB23 /* menu_5.mp3 in Resources */,
+				923F101A26B7C408002AAB23 /* game_1.mp3 in Resources */,
 				923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +362,7 @@
 				920A204F2642ED2900AD7A26 /* AppDelegate.swift in Sources */,
 				926969AB2664BBAA00F2B540 /* CustomViewController.swift in Sources */,
 				920A20512642ED2900AD7A26 /* SceneDelegate.swift in Sources */,
+				923F101F26B7C433002AAB23 /* SoundPlayer.swift in Sources */,
 				92A83B56266DE021009B060A /* UserDefaultsKeys.swift in Sources */,
 				92A83B58266E2368009B060A /* Number+Mapped.swift in Sources */,
 				92B16556265E3E3A004BF1B4 /* Button+Shadow.swift in Sources */,

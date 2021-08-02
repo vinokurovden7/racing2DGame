@@ -12,10 +12,9 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var restartButton: CustomButton!
     @IBOutlet weak var returnToMainMenu: CustomButton!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var enableAutopilotSwicher: UISwitch!
     
     var score = 0
-    
+    private let soundEffectsPlayer = SoundPlayer()
     var closure: ((Bool) -> ())?
     
     override func viewDidLoad() {
@@ -24,9 +23,6 @@ class GameOverViewController: UIViewController {
         scoreLabel.text = "Score: \(score)"
     }
     
-    @IBAction func enabledAutopilot(_ sender: UISwitch) {
-        
-    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -39,12 +35,14 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func restartButtonAction(_ sender: UIButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         dismiss(animated: true) { [self] in
             self.closure?(false)
         }
     }
     
     @IBAction func returnToMainMenuButtonAction(_ sender: UIButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         dismiss(animated: true) { [self] in
             self.closure?(true)
         }

@@ -15,18 +15,21 @@ class MainMenuViewController: CustomViewController {
     @IBOutlet weak var settingButton: CustomButton!
     @IBOutlet weak var captionLabel: UILabel!
     
+    //MARK: Variables:
     private let userDefaults = UserDefaults.standard
     enum OpeningScreen {
         case playScreen
         case tableScoreScreen
         case settingsScreen
     }
+    private let soundEffectsPlayer = SoundPlayer()
     
     //MARK: Life cycles:
     override func viewDidLoad() {
         super.viewDidLoad()
         captionLabel.alpha = 0
         checkPlayerName {_ in}
+        SoundPlayer.musicPlayer.playSound(typeSound: .menu)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,16 +64,20 @@ class MainMenuViewController: CustomViewController {
     //MARK: IBActions:
     // Начать игру
     @IBAction func playGameButtonAction(_ sender: UIButton) {
+        self.soundEffectsPlayer.playSound(typeSound: .selectButton)
+        SoundPlayer.musicPlayer.stopPlaying()
         showScreen(screen: .playScreen)
     }
     
     // Таблица рекордов
     @IBAction func tableScoreButtonAction(_ sender: UIButton) {
+        self.soundEffectsPlayer.playSound(typeSound: .selectButton)
         showScreen(screen: .tableScoreScreen)
     }
     
     // Настройки
     @IBAction func settingButtonAction(_ sender: UIButton) {
+        self.soundEffectsPlayer.playSound(typeSound: .selectButton)
         showScreen(screen: .settingsScreen)
     }
     
