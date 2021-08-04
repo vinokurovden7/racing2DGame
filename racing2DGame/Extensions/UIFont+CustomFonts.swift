@@ -8,10 +8,10 @@
 import UIKit
 
 extension UIFont {
-    
+
     static func chernobylFont(of size: CGFloat) -> UIFont? {
         let font = UIFont(name: "Chernobyl", size: size)
         return font
     }
-    
+
 }

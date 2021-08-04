@@ -173,8 +173,8 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sii-cT-ksa">
                                                 <rect key="frame" x="18" y="1041.6666666666667" width="378" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
-                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="minimumValueImage" image="speaker.wave.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="speaker.wave.3.fill" catalog="system" symbolScale="large"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,8 +191,8 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-t9-X5H">
                                                 <rect key="frame" x="18" y="1178" width="378" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
-                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="minimumValueImage" image="speaker.wave.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="speaker.wave.3.fill" catalog="system" symbolScale="large"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,8 +206,8 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-Ze-bwb">
                                                 <rect key="frame" x="18" y="1314.3333333333333" width="378" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <imageReference key="minimumValueImage" image="volume.1.fill" catalog="system" symbolScale="large"/>
-                                                <imageReference key="maximumValueImage" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="minimumValueImage" image="speaker.wave.1.fill" catalog="system" symbolScale="large"/>
+                                                <imageReference key="maximumValueImage" image="speaker.wave.3.fill" catalog="system" symbolScale="large"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="maximumTrackTintColor" systemColor="systemTealColor"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -357,9 +357,9 @@
         <image name="backgroundMenu" width="1080" height="1917"/>
         <image name="car_icon" width="256" height="256"/>
         <image name="hare.fill" catalog="system" width="128" height="91"/>
+        <image name="speaker.wave.1.fill" catalog="system" width="128" height="108"/>
+        <image name="speaker.wave.3.fill" catalog="system" width="128" height="86"/>
         <image name="tortoise.fill" catalog="system" width="128" height="66"/>
-        <image name="volume.1.fill" catalog="system" width="128" height="108"/>
-        <image name="volume.3.fill" catalog="system" width="128" height="86"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="yellowUserCar_xenon_greenNeon_icon" width="180" height="395"/>
         <namedColor name="AccentColor">

@@ -7,22 +7,26 @@
 
 import UIKit
 class CustomViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    func showViewController(storyboardName: String = "Main", showingViewController: CustomViewController, navigationController: Bool, modalPresentationStyle: UIModalPresentationStyle = .automatic) {
-            
+
+    func showViewController(storyboardName: String = "Main",
+                            showingViewController: CustomViewController,
+                            navigationController: Bool,
+                            modalPresentationStyle: UIModalPresentationStyle = .automatic) {
+
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let showingViewController = storyboard.instantiateViewController(identifier: String(describing: type(of: showingViewController)))
+        let identifier = String(describing: type(of: showingViewController))
+        let showingViewController = storyboard.instantiateViewController(identifier: identifier)
         showingViewController.modalPresentationStyle = modalPresentationStyle
-        
+
         if navigationController {
             self.navigationController?.pushViewController(showingViewController, animated: true)
         } else {
             present(showingViewController, animated: true)
         }
     }
-    
+
 }
