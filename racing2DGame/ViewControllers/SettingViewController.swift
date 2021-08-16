@@ -134,38 +134,6 @@ class SettingViewController: CustomViewController {
         UIView.animate(withDuration: 0.5, delay: 0.3) {
             self.scrollView.alpha = 1
         }
-//        playerNameLabel.alpha = 0
-//        closeScreenButton.alpha = 0
-//        playerNameTextField.alpha = 0
-//        selectCarLabel.alpha = 0
-//        selectedCarImageView.alpha = 0
-//        leftChangeCarButton.alpha = 0
-//        rightChangeCarButton.alpha = 0
-//        selectBarrierLabel.alpha = 0
-//        firstTypeBarrierImageView.alpha = 0
-//        secondTypeBarrierImageView.alpha = 0
-//        firstTypeBarrierSwich.alpha = 0
-//        secondTypeBarrierSwich.alpha = 0
-//        speedGameLabel.alpha = 0
-//        speedGameSlider.alpha = 0
-//
-//        var delay: Double = 0
-//        for element in elementsArray {
-//            guard let element = element else {return}
-//            UIView.animate(withDuration: 0.5, delay: delay, options: [.curveLinear], animations: {
-//                element.alpha = 1
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.2) {
-//                    element.frame.origin.y -= 10
-//                } completion: { _ in
-//                    UIView.animate(withDuration: 0.2) {
-//                        element.frame.origin.y += 10
-//                    }
-//                }
-//
-//            })
-//            delay += 0.05
-//        }
     }
 
     private func changeCarImage(direction: DirectionCahngeCar) {
