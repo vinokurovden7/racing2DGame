@@ -7,8 +7,12 @@
 
 import Foundation
 class SettingsClass: Codable {
-    var playerName = "User1"
+    var playerName = "Player"
     var selectedCarImageName = "yellowUser_icon"
-    var selectedBarrier: [String:Bool] = ["barrier" : true, "traffic" : true]
+    var selectedBarrier: [String: Bool] = ["barrier": true, "traffic": true]
     var speedGame: Float = 1.5
+    var selectedTypeControll = 0
+    var musicVolume: Float = 50.0
+    var effectsVolume: Float = 50.0
+    var selectButtonVolume: Float = 50.0
 }

@@ -6,27 +6,41 @@
 //
 
 import UIKit
-
+import CoreMotion
+// swiftlint:disable type_body_length file_length
 class GameViewController: CustomViewController {
 
-    //MARK: IBOutlets:
+    // MARK: IBOutlets:
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var centerConstraintCar: NSLayoutConstraint!
     @IBOutlet weak var rigthControlButton: CustomButton!
     @IBOutlet weak var leftControlButton: CustomButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var menuButton: CustomButton!
-    
-    //MARK: Variables
+
+    // MARK: Variables
     private let firstRoadImageView = UIImageView(image: UIImage(named: "nightRoadBackground"))
     private let secondRoadImageView = UIImageView(image: UIImage(named: "nightRoadBackground"))
-    private var arrayThree: [UIView:CGRect] = [:]
+    private var arrayThree: [UIView: CGRect] = [:]
     private var arrayBarier: [UIView:(traffic: Bool, oncoming: Bool )] = [:]
     private var timeDuration: TimeInterval = 1.5
     private var showHelp = true
     private let arrayTreeNamesIcon = ["tree_one_icon", "tree_two_icon", "tree_four_icon", "tree_five_icon"]
-    private let arrayTrafficCarNamesIcon = ["ambulance", "bus", "jeepCar", "orangeCar", "pinkCar", "policeCar", "redCar", "redMitsuCar", "taxiCar", "truck", "whiteCar", "whiteMersCar", "whiteRaceCar", "yellowCar"]
-    private let arrayStartTimer: [Int:String] = [0 : "3", 1 : "2", 2 : "1", 3 : "start"]
+    private let arrayTrafficCarNamesIcon = ["ambulance",
+                                            "bus",
+                                            "jeepCar",
+                                            "orangeCar",
+                                            "pinkCar",
+                                            "policeCar",
+                                            "redCar",
+                                            "redMitsuCar",
+                                            "taxiCar",
+                                            "truck",
+                                            "whiteCar",
+                                            "whiteMersCar",
+                                            "whiteRaceCar",
+                                            "yellowCar"]
+    private let arrayStartTimer: [Int: String] = [0: "3", 1: "2", 2: "1", 3: "start"]
     private var lastTrafficImageName = ""
     private let helpView = UIView()
     private let tapGestureRecognizer = UITapGestureRecognizer()
@@ -52,16 +66,19 @@ class GameViewController: CustomViewController {
     private var playerName: String = ""
     private var startTimerSeconds = 0
     private var firstNumberImage = UILabel()
-    private var selectedBarrier: [String:Bool] = [:]
+    private var selectedBarrier: [String: Bool] = [:]
     private var threeTimer = Timer()
     private var barrierTimer = Timer()
-    
-    
+    private let motionManager = CMMotionManager()
+    private var typeControll = 0
+    private let soundCarCrashEffectsPlayer = SoundPlayer()
+    private let soundEffectsPlayer = SoundPlayer()
+
     private enum DirectionRotation {
         case left
         case right
     }
-    
+
     private enum StatusGame {
         case play
         case pause
@@ -69,99 +86,103 @@ class GameViewController: CustomViewController {
         case gameOver
         case resume
     }
-    
-    //MARK: Life cycles
+
+    // MARK: Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         firstSetup()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         setupScreen()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopGame()
+        SoundPlayer.musicPlayer.playSound(typeSound: .menu)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
-    //MARK: objc func
+
+    // MARK: objc func
     // Нажатие на экран обучения перед началом игры
     @objc func tapGestureAction() {
         self.centerConstraintCar.constant = 0
-        UIView.animate(withDuration: 0.5, animations:  {
+        UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
             self.helpView.alpha = 0
             self.rigthControlButton.setTitle("", for: .normal)
             self.leftControlButton.setTitle("", for: .normal)
             self.rigthControlButton.backgroundColor = .clear
             self.leftControlButton.backgroundColor = .clear
-        } , completion: { _ in
+        }, completion: { _ in
             self.helpView.removeFromSuperview()
             self.showHelp = false
             self.statusGame = .play
             self.moveDelimeterView()
             self.showStartTimer()
         })
-        
+
     }
-    
+
     @objc func resumeMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             self.statusGame = .resume
             self.checkStatusGame()
         }
     }
-    
+
     @objc func restartMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             UIView.animate(withDuration: 0.5) {
                 self.menuButton.alpha = 0
             }
             self.restartGame()
         }
-        
+
     }
-    
+
     @objc func returnToMainMenuMenuButtonAction(_ sender: CustomButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         hidePauseMenu {
             self.statusGame = .stop
             self.checkStatusGame()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-    
-    
-    //MARK: IBActions:
+
+    // MARK: IBActions:
     // Нажатие на левую кнопку поворота
     @IBAction func touchDownLeftButtonAction(_ sender: UIButton) {
         moveCar(direction: .left)
     }
-    
+
     // Отпускание левой кнопки поворота
     @IBAction func touchUpInsideLeftButtonAction(_ sender: UIButton) {
         returnedRotationCar()
     }
-    
+
     // Нажатие на правую кнопку поворота
     @IBAction func touchDownRightButtonAction(_ sender: UIButton) {
         moveCar(direction: .right)
     }
-    
+
     // Отпускание правой кнопки поворота
     @IBAction func touchUpInsideRightButtonAction(_ sender: UIButton) {
         returnedRotationCar()
     }
-    
+
     // Показать меню паузы
     @IBAction func showMenuButtonAction(_ sender: UIButton) {
+        soundEffectsPlayer.playSound(typeSound: .selectButton)
         showPauseMenu(xPoint: sender.frame.maxX, yPoint: sender.frame.maxY)
     }
-    
-    //MARK: Custom func
+
+    // MARK: Custom func
     /// Движение машинки игрока
     /// - Parameters:
     ///   - direction: направление
@@ -175,7 +196,7 @@ class GameViewController: CustomViewController {
                 } else {
                     setGameOverMode()
                 }
-                
+
                 UIView.animate(withDuration: timeDuration / 15, delay: 0, options: [.curveLinear]) { [self] in
                     carImage.transform = CGAffineTransform(rotationAngle: -rotationUserCarAngle)
                     self.view.layoutIfNeeded()
@@ -185,9 +206,9 @@ class GameViewController: CustomViewController {
                     }
                 }
             }
-            
+
         case .right:
-            
+
             checkStatusGame()
             if statusGame == .play || showHelp {
                 if carImage.frame.maxX < firstRoadImageView.frame.maxX {
@@ -195,10 +216,10 @@ class GameViewController: CustomViewController {
                 } else {
                     setGameOverMode()
                 }
-                
+
                 UIView.animate(withDuration: timeDuration / 15, delay: 0, options: [.curveLinear]) { [self] in
                     carImage.transform = CGAffineTransform(rotationAngle: rotationUserCarAngle)
-                    
+
                     self.view.layoutIfNeeded()
                 } completion: { [self] _ in
                     if rigthControlButton.isHighlighted {
@@ -208,27 +229,26 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
+
     /// Вернуть поворот машинки игрока
     private func returnedRotationCar() {
         UIView.animate(withDuration: timeDuration / 15, delay: 0, options: [.curveLinear]) { [self] in
             carImage.transform = CGAffineTransform(rotationAngle: 0)
-            
+
         }
     }
-    
-    
+
     /// Движение полосы разметки
     /// - Parameter movedView: view полосы разметки
     private func moveDelimeterView() {
         UIView.animate(withDuration: timeDuration / 7, delay: 0, options: [.curveLinear]) { [self] in
             if statusGame == .play {
-                
+
                 firstRoadImageView.frame.origin.y += self.view.frame.height * multipleDelimeterHeight
                 secondRoadImageView.frame.origin.y += self.view.frame.height * multipleDelimeterHeight
             }
         } completion: { [self]  _ in
-            
+
             checkStatusGame()
             if firstRoadImageView.frame.origin.y > self.view.frame.maxY {
                 firstRoadImageView.frame.origin.y = self.view.frame.origin.y - self.view.frame.height * 2
@@ -239,7 +259,7 @@ class GameViewController: CustomViewController {
             moveDelimeterView()
         }
     }
-    
+
     /// Добавить дерево на обочину
     private func addTree() {
         guard let randomTreeName = arrayTreeNamesIcon.randomElement() else {return}
@@ -247,37 +267,48 @@ class GameViewController: CustomViewController {
         image.contentMode = .scaleToFill
         view.insertSubview(image, at: 1)
         if Bool.random() {
-            image.frame = CGRect(x: self.view.frame.origin.x + self.view.frame.width / 17, y: self.view.frame.origin.y - 20, width: self.view.frame.width * multipleWidth, height:  self.view.frame.width * multipleWidth)
+            image.frame = CGRect(x: self.view.frame.maxX / 17,
+                                 y: self.view.frame.origin.y - 20,
+                                 width: self.view.frame.width * multipleWidth,
+                                 height: self.view.frame.width * multipleWidth)
         } else {
-            image.frame = CGRect(x: self.view.frame.maxX - self.view.frame.width / 9, y: self.view.frame.origin.y - 20, width: self.view.frame.width * multipleWidth, height:  self.view.frame.width * multipleWidth)
+            image.frame = CGRect(x: self.view.frame.origin.x / 9,
+                                 y: self.view.frame.origin.y - 20,
+                                 width: self.view.frame.width * multipleWidth,
+                                 height: self.view.frame.width * multipleWidth)
         }
         arrayThree[image] = CGRect(origin: image.frame.origin, size: image.frame.size)
         view.insertSubview(image, at: 2)
         moveTreeView(movedView: image)
-        
+
     }
-    
+
     /// Движение дерева
     /// - Parameter movedView: двигаемое view дерева
     private func moveTreeView(movedView: UIView) {
-        
+
         UIView.animate(withDuration: timeDuration / 7, delay: 0, options: [.curveLinear]) { [self] in
             if statusGame == .play {
                 movedView.frame.origin.y += self.view.frame.height * multipleDelimeterHeight
             }
         } completion: { [self] _ in
-            
-            if carImage.frame.intersects(movedView.frame) && movedView.frame.maxY > carImage.frame.origin.y + carImage.frame.height / 2 {
+
+            if carImage.frame.intersects(movedView.frame) &&
+                movedView.frame.maxY > carImage.frame.maxY / 2 {
                 statusGame = .gameOver
             }
-            
+
             checkStatusGame()
             if statusGame == .play {
-                if movedView.frame.origin.y >= self.view.frame.height  {
+                if movedView.frame.origin.y >= self.view.frame.height {
                     movedView.removeFromSuperview()
                     arrayThree[movedView] = nil
                 } else {
-                    if movedView.frame.origin.y >= self.view.frame.origin.y + movedView.frame.height * 4 && arrayThree.count <= 5 && arrayThree.filter({$0.key.frame.origin.y <= self.view.frame.origin.y + movedView.frame.height * 4}).count == 0 {
+                    if movedView.frame.origin.y >= self.view.frame.maxY * 4 &&
+                        arrayThree.count <= 5 &&
+                        arrayThree.filter({
+                            $0.key.frame.origin.y <= self.view.frame.maxY * 4
+                        }).count == 0 {
                         addTree()
                     }
                     moveTreeView(movedView: movedView)
@@ -285,12 +316,12 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
+
     /// Получить случайную картинку трафика
     /// - Returns: Наименование картинки
     private func getRandomTrafficImage() -> String {
         guard let trafficImageName = arrayTrafficCarNamesIcon.randomElement() else {return ""}
-                
+
         if lastTrafficImageName.isEmpty {
             lastTrafficImageName = trafficImageName
             return trafficImageName
@@ -303,14 +334,14 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
+
     private func getRandomBarrierName() -> String {
         return "Top_Road_Barrier"
     }
-    
+
     /// Добавить барьер на трассу
     private func addBariers() {
-        
+
         guard let traffic = selectedBarrier["traffic"], let barrier = selectedBarrier["barrier"] else {return}
         if traffic && !barrier {
             addTraffic()
@@ -323,19 +354,31 @@ class GameViewController: CustomViewController {
                 addBarrier()
             }
         }
-        
+
     }
-    
+
     private func addBarrier() {
         let image = UIImageView(image: UIImage(named: getRandomBarrierName()))
         image.contentMode = .scaleAspectFit
         if Bool.random() {
-            image.frame = CGRect(x: CGFloat.random(in: self.view.center.x - self.view.frame.width / 4...self.view.center.x - self.view.frame.width / 8.25), y: self.view.frame.origin.y - 120, width: self.view.frame.width * multipleWidth * 2, height: 20)
+            let startRange = self.view.center.x - self.view.frame.width / 4
+            let endRange = self.view.center.x - self.view.frame.width / 8.25
+            let randomXpos = CGFloat.random(in: startRange...endRange)
+            image.frame = CGRect(x: randomXpos,
+                                 y: self.view.frame.origin.y - 120,
+                                 width: self.view.frame.width * multipleWidth * 2,
+                                 height: 20)
         } else {
-            image.frame = CGRect(x: CGFloat.random(in: self.view.center.x + self.view.frame.width / 19...self.view.center.x + self.view.frame.width / 5), y: self.view.frame.origin.y - 120, width: self.view.frame.width * multipleWidth * 2, height: 20)
+            let startRange = self.view.center.x + self.view.frame.width / 19
+            let endRange = self.view.center.x + self.view.frame.width / 5
+            let randomXpos = CGFloat.random(in: startRange...endRange)
+            image.frame = CGRect(x: randomXpos,
+                                 y: self.view.frame.origin.y - 120,
+                                 width: self.view.frame.width * multipleWidth * 2,
+                                 height: 20)
         }
-        
-        if arrayBarier.filter({$0.key.frame.intersects(image.frame)}).count > 0  {
+
+        if arrayBarier.filter({$0.key.frame.intersects(image.frame)}).count > 0 {
             addBariers()
             return
         }
@@ -343,16 +386,28 @@ class GameViewController: CustomViewController {
         view.addSubview(image)
         moveBarierView(movedView: image, duration: timeDuration / 50)
     }
-    
+
     private func addTraffic() {
         let image = UIImageView(image: UIImage(named: getRandomTrafficImage()))
         image.contentMode = .scaleAspectFill
         if Bool.random() {
-            image.frame = CGRect(x: CGFloat.random(in: self.view.center.x - self.view.frame.width / 4...self.view.center.x - self.view.frame.width / 8.25), y: self.view.frame.origin.y - 120, width: self.view.frame.width * multipleWidth, height: self.view.frame.height * 0.171522)
+            let startRange = self.view.center.x - self.view.frame.width / 4
+            let endRange = self.view.center.x - self.view.frame.width / 8.25
+            let randomXpos = CGFloat.random(in: startRange...endRange)
+            image.frame = CGRect(x: randomXpos,
+                                 y: self.view.frame.origin.y - 120,
+                                 width: self.view.frame.width * multipleWidth,
+                                 height: self.view.frame.height * 0.171522)
         } else {
-            image.frame = CGRect(x: CGFloat.random(in: self.view.center.x + self.view.frame.width / 19...self.view.center.x + self.view.frame.width / 5), y: self.view.frame.origin.y - 120, width: self.view.frame.width * multipleWidth, height: self.view.frame.height * 0.171522)
+            let startRange = self.view.center.x + self.view.frame.width / 19
+            let endRange = self.view.center.x + self.view.frame.width / 5
+            let randomXpos = CGFloat.random(in: startRange...endRange)
+            image.frame = CGRect(x: randomXpos,
+                                 y: self.view.frame.origin.y - 120,
+                                 width: self.view.frame.width * multipleWidth,
+                                 height: self.view.frame.height * 0.171522)
         }
-        if arrayBarier.filter({$0.key.frame.intersects(image.frame)}).count > 0  {
+        if arrayBarier.filter({$0.key.frame.intersects(image.frame)}).count > 0 {
             addBariers()
             return
         }
@@ -365,7 +420,7 @@ class GameViewController: CustomViewController {
             moveBarierView(movedView: image, duration: timeDuration / 20)
         }
     }
-    
+
     /// Движение барьера
     /// - Parameter movedView: движимое view
     private func moveBarierView(movedView: UIView, duration: TimeInterval) {
@@ -376,37 +431,38 @@ class GameViewController: CustomViewController {
         } completion: { [self] _ in
             guard let barrier = arrayBarier[movedView] else {return}
             if carImage.frame.intersects(movedView.frame) {
-                
+
                 // Встречка
                 if barrier.oncoming {
                     // Траффик
-                    if barrier.traffic {
-                        if movedView.frame.maxY - movedView.frame.height / 2.2 > carImage.frame.origin.y + carImage.frame.height / 2 {
+                    if barrier.traffic &&
+                        movedView.frame.origin.y / 2.2 > carImage.frame.origin.y + carImage.frame.height / 2 {
                             statusGame = .gameOver
-                        }
                     } else {
-                        if movedView.frame.maxY > carImage.frame.origin.y + carImage.frame.height / 2 && (movedView.frame.origin.x + 15 <= carImage.frame.maxX - 15 || movedView.frame.maxX - 15 <= carImage.frame.origin.x + 15) {
+                        if movedView.frame.maxY > carImage.frame.maxY / 2 &&
+                            (movedView.frame.origin.x + 15 <= carImage.frame.maxX - 15 ||
+                            movedView.frame.maxX - 15 <= carImage.frame.origin.x + 15) {
                             statusGame = .gameOver
                         }
                     }
                 } else {
-                    if barrier.traffic {
-                        
-                        if movedView.frame.maxY > carImage.frame.origin.y + carImage.frame.height / 2 &&
-                            movedView.frame.origin.y + movedView.frame.height / 2.2 < carImage.frame.maxY &&
-                            (movedView.frame.origin.x + 2.5 <= carImage.frame.maxX - 2.5 || movedView.frame.maxX - 2.5 <= carImage.frame.origin.x + 2.5) {
+                    if barrier.traffic &&
+                        movedView.frame.maxY > carImage.frame.origin.y + carImage.frame.height / 2 &&
+                        movedView.frame.origin.y + movedView.frame.height / 2.2 < carImage.frame.maxY &&
+                        (movedView.frame.origin.x + 2.5 <= carImage.frame.maxX - 2.5 ||
+                        movedView.frame.maxX - 2.5 <= carImage.frame.origin.x + 2.5) {
                             statusGame = .gameOver
-                        }
-                        
                     } else {
-                        if movedView.frame.maxY > carImage.frame.origin.y + carImage.frame.height / 2 && (movedView.frame.origin.x + 15 <= carImage.frame.maxX - 15 || movedView.frame.maxX - 15 <= carImage.frame.origin.x + 15) {
+                        if movedView.frame.maxY > carImage.frame.maxY / 2 &&
+                            (movedView.frame.origin.x + 15 <= carImage.frame.maxX - 15 ||
+                            movedView.frame.maxX - 15 <= carImage.frame.origin.x + 15) {
                             statusGame = .gameOver
                         }
                     }
                 }
-                
+
             }
-            
+
             checkStatusGame()
             if statusGame == .play {
                 if movedView.frame.origin.y >= self.view.frame.height {
@@ -418,10 +474,11 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
-    
+
     /// Установить режим Game over
     private func setGameOverMode() {
+        self.soundCarCrashEffectsPlayer.playSound(typeSound: .carCrash)
+        SoundPlayer.musicPlayer.stopPlaying()
         statusGame = .pause
         returnedRotationCar()
         var usersScoreArray: [GameScoreClass] = []
@@ -441,24 +498,26 @@ class GameViewController: CustomViewController {
         scoreTimer.invalidate()
         if !showHelp {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let gameOverViewController = storyboard.instantiateViewController(identifier: "GameOverViewController") as GameOverViewController
-            gameOverViewController.score = score
-            gameOverViewController.closure = { [self] showMainScreen in
-                if showMainScreen {
-                    self.navigationController?.popToRootViewController(animated: true)
-                } else {
-                    restartGame()
+            let instantiateViewController = storyboard.instantiateViewController(identifier: "GameOverViewController")
+            if let gameOverViewController = instantiateViewController as? GameOverViewController {
+                gameOverViewController.score = score
+                gameOverViewController.closure = { [self] showMainScreen in
+                    if showMainScreen {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        restartGame()
+                    }
                 }
+                present(gameOverViewController, animated: true)
             }
-            present(gameOverViewController, animated: true)
         }
     }
-    
+
     /// Первоначальная настройка
     private func firstSetup() {
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.addTarget(self, action: #selector(tapGestureAction))
-        
+
         firstNumberImage.font = UIFont.chernobylFont(of: 50)
         firstNumberImage.textAlignment = .center
         firstNumberImage.textColor = .systemTeal
@@ -469,7 +528,7 @@ class GameViewController: CustomViewController {
         firstNumberImage.backgroundColor = .clear
 
         scoreLabel.alpha = 0
-        
+
         helpLabel.text = "Dodge traffic\nFor turns, press the side buttons\nTo start the game, tap on the screen"
         helpLabel.font = .chernobylFont(of: 20)
         helpView.frame = self.view.bounds
@@ -479,34 +538,60 @@ class GameViewController: CustomViewController {
         helpLabel.textColor = .white
         helpLabel.numberOfLines = 0
         helpLabel.alpha = 0
+
         helpView.addSubview(helpLabel)
         helpView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.85)
         helpView.alpha = 0
         view.insertSubview(helpView, at: 1)
+
         rigthControlButton.backgroundColor = #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5216298893)
         leftControlButton.backgroundColor =  #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5216298893)
         rigthControlButton.alpha = 0
         leftControlButton.alpha = 0
+
         title = "Игра"
-        
+
         UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut) {
             self.helpView.alpha = 1
             self.helpLabel.alpha = 1
         }
-        
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-            self.blinkButton(blinkedButton: self.leftControlButton) {
-                self.blinkButton(blinkedButton: self.rigthControlButton) {
+
+        if let settingsData = userDefaults.value(forKey: .userSettings) as? Data {
+            do {
+                let userSettings = try JSONDecoder().decode(SettingsClass.self, from: settingsData)
+                switch userSettings.selectedTypeControll {
+                case 0:
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                        self.blinkButton(blinkedButton: self.leftControlButton) {
+                            self.blinkButton(blinkedButton: self.rigthControlButton) {
+                                self.helpView.addGestureRecognizer(self.tapGestureRecognizer)
+                            }
+                        }
+                        timer.invalidate()
+                    }
+                case 1:
+                    helpLabel.text = "Dodge traffic\nFor turns, rotate device\nTo start the game, tap on the screen"
+                    let rotationDeviceImageView = UIImageView()
+                    rotationDeviceImageView.image = UIImage(named: "rotate-arrow")
+                    rotationDeviceImageView.contentMode = .scaleAspectFill
+                    rotationDeviceImageView.frame.size = CGSize(width: 100, height: 100)
+                    let xPoint = helpLabel.frame.maxY / 2 - rotationDeviceImageView.frame.width / 2
+                    let yPoint = helpLabel.frame.maxY + 20
+                    rotationDeviceImageView.frame.origin = CGPoint(x: xPoint,
+                                                                   y: yPoint)
+                    helpView.addSubview(rotationDeviceImageView)
                     self.helpView.addGestureRecognizer(self.tapGestureRecognizer)
+                default:
+                    print("Unknown type controll")
                 }
+            } catch {
+                print(error.localizedDescription)
             }
-            timer.invalidate()
         }
-        
 
     }
-    
-    private func blinkButton(blinkedButton: UIButton, countBlink: Int = 1, completion: @escaping () -> ()) {
+
+    private func blinkButton(blinkedButton: UIButton, countBlink: Int = 1, completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
             blinkedButton.alpha = 1
         } completion: { _ in
@@ -524,13 +609,14 @@ class GameViewController: CustomViewController {
         }
 
     }
-    
+
     /// Остановить игру
     private func stopGame() {
         UIView.animate(withDuration: 0.5) {
             self.scoreLabel.alpha = 0
             self.menuButton.alpha = 0
         }
+        motionManager.stopAccelerometerUpdates()
         scoreTimer.invalidate()
         barrierTimer.invalidate()
         threeTimer.invalidate()
@@ -538,7 +624,7 @@ class GameViewController: CustomViewController {
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
-        
+
         score = 0
         scoreLabel.text = "score: \(score)"
         if let settingsData = userDefaults.value(forKey: .userSettings) as? Data {
@@ -566,10 +652,13 @@ class GameViewController: CustomViewController {
         arrayThree.removeAll()
         arrayBarier.removeAll()
     }
-    
+
     /// Продолжить  игру
     private func resumeGame() {
         statusGame = .play
+        if typeControll == 1 {
+            startUpdateAcceleration()
+        }
         startScoreTimer()
         DispatchQueue.main.async { [self] in
             for tree in arrayThree.keys {
@@ -590,28 +679,29 @@ class GameViewController: CustomViewController {
                 } else {
                     moveBarierView(movedView: barrier.key, duration: timeDuration / 50)
                 }
-                
+
             }
         }
         startThreeTimer()
         startBarrierTimer()
-        
+
     }
-    
+
     /// Поставить игру на паузу
     private func pauseGame() {
+        motionManager.stopAccelerometerUpdates()
         scoreTimer.invalidate()
         barrierTimer.invalidate()
         threeTimer.invalidate()
     }
-    
+
     /// Рестарт игры
     private func restartGame() {
         stopGame()
         statusGame = .play
         showStartTimer()
     }
-    
+
     /// Проверить статус игры
     private func checkStatusGame() {
         switch statusGame {
@@ -627,7 +717,7 @@ class GameViewController: CustomViewController {
             setGameOverMode()
         }
     }
-    
+
     /// Запустить счетчик очков
     private func startScoreTimer() {
         if statusGame == .play {
@@ -649,34 +739,50 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
+
     private func startThreeTimer() {
         Timer.scheduledTimer(withTimeInterval: timeDuration, repeats: true) { timer in
             self.threeTimer = timer
             self.addTree()
         }
     }
-    
+
     private func startBarrierTimer() {
         Timer.scheduledTimer(withTimeInterval: timeDuration / 2, repeats: true) { timer in
             self.barrierTimer = timer
             self.addBariers()
         }
     }
-    
+
     /// Запуск таймера перед началом игры
     private func showStartTimer() {
+        SoundPlayer.musicPlayer.playSound(typeSound: .game)
         startTimerSeconds = 0
         firstNumberImage.text = arrayStartTimer[startTimerSeconds]
         firstNumberImage.frame.origin = CGPoint(x: self.view.frame.maxX, y: self.view.center.y - 25)
-        firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth, height: self.view.frame.height * multipleHeight)
+        firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth,
+                                             height: self.view.frame.height * multipleHeight)
         self.view.addSubview(firstNumberImage)
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [self] _ in
             let centerPointX = self.view.center.x - 12.5
             moveNumber(pointX: centerPointX)
         }
     }
-    
+
+    private func startGame() {
+        if typeControll == 1 {
+            startUpdateAcceleration()
+        }
+        firstNumberImage.removeFromSuperview()
+        startThreeTimer()
+        startBarrierTimer()
+        startScoreTimer()
+        UIView.animate(withDuration: 0.5) {
+            self.scoreLabel.alpha = 1
+            self.menuButton.alpha = 1
+        }
+    }
+
     /// Двигать число таймера перед началом игры
     /// - Parameter pointX: позиция движения
     private func moveNumber(pointX: CGFloat) {
@@ -699,17 +805,11 @@ class GameViewController: CustomViewController {
                 } else {
                     firstNumberImage.frame.origin.x = self.view.frame.maxX
                     firstNumberImage.frame.origin.y = self.view.center.y - 25
-                    firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth * 6, height: self.view.frame.height * multipleHeight)
+                    firstNumberImage.frame.size = CGSize(width: self.view.frame.width * multipleWidth * 6,
+                                                         height: self.view.frame.height * multipleHeight)
                     firstNumberImage.text = arrayStartTimer[startTimerSeconds]
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] startTimer in
-                        firstNumberImage.removeFromSuperview()
-                        startThreeTimer()
-                        startBarrierTimer()
-                        startScoreTimer()
-                        UIView.animate(withDuration: 0.5) {
-                            self.scoreLabel.alpha = 1
-                            self.menuButton.alpha = 1
-                        }
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] _ in
+                        startGame()
                     }
                     let centerPointX = self.view.center.x - self.view.frame.width * multipleWidth * 6 / 2
                     moveNumber(pointX: centerPointX)
@@ -717,7 +817,7 @@ class GameViewController: CustomViewController {
             }
         }
     }
-    
+
     /// Показать меню паузы
     /// - Parameters:
     ///   - xPoint: координата X
@@ -739,20 +839,21 @@ class GameViewController: CustomViewController {
             menuView.layer.shadowOffset = CGSize(width: 0, height: 0)
             menuView.layer.shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.8).cgColor
             view.addSubview(menuView)
-            
+
             UIView.animate(withDuration: 0.1, animations: {
                 self.menuButton.alpha = 0
-            } , completion: { _ in
+            }, completion: { _ in
                 self.menuButton.setImage(UIImage(systemName: "xmark"), for: .normal)
                 UIView.animate(withDuration: 0.1) {
                     self.menuButton.alpha = 1
                 }
             })
-            
+
             UIView.animate(withDuration: 0.3) { [self] in
-                menuView.frame.size = CGSize(width: self.view.frame.width - menuView.frame.origin.x - xPoint, height: 300)
+                menuView.frame.size = CGSize(width: self.view.frame.width - menuView.frame.origin.x - xPoint,
+                                             height: 300)
             } completion: { [self] _ in
-                
+
                 titleMenuViewLabel.alpha = 0
                 titleMenuViewLabel.text = "Pause"
                 titleMenuViewLabel.font = .chernobylFont(of: fontSigePauseMenuButtons * 2)
@@ -760,9 +861,12 @@ class GameViewController: CustomViewController {
                 titleMenuViewLabel.textAlignment = .center
                 titleMenuViewLabel.textColor = .systemYellow
                 titleMenuViewLabel.addShadow(color: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 0.5))
-                
+
                 resumeMenuButton.alpha = 0
-                resumeMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons, y: titleMenuViewLabel.frame.maxY + offsetPauseMenuButtons / 2, width: menuView.frame.width - offsetPauseMenuButtons, height: offsetPauseMenuButtons)
+                resumeMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons,
+                                                y: titleMenuViewLabel.frame.maxY + offsetPauseMenuButtons / 2,
+                                                width: menuView.frame.width - offsetPauseMenuButtons,
+                                                height: offsetPauseMenuButtons)
                 resumeMenuButton.setTitle("Resume", for: .normal)
                 resumeMenuButton.titleLabel?.font = UIFont.chernobylFont(of: fontSigePauseMenuButtons)
                 resumeMenuButton.addTarget(self, action: #selector(resumeMenuButtonAction(_:)), for: .touchUpInside)
@@ -770,9 +874,12 @@ class GameViewController: CustomViewController {
                 resumeMenuButton.rounded()
                 resumeMenuButton.setTitleColor(.black, for: .normal)
                 resumeMenuButton.addShadow(color: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 0.5))
-                
+
                 restartMenuButton.alpha = 0
-                restartMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons, y: resumeMenuButton.frame.maxY + offsetPauseMenuButtons, width: menuView.frame.width - offsetPauseMenuButtons, height: offsetPauseMenuButtons)
+                restartMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons,
+                                                 y: resumeMenuButton.frame.maxY + offsetPauseMenuButtons,
+                                                 width: menuView.frame.width - offsetPauseMenuButtons,
+                                                 height: offsetPauseMenuButtons)
                 restartMenuButton.setTitle("Restart game", for: .normal)
                 restartMenuButton.titleLabel?.font = UIFont.chernobylFont(of: fontSigePauseMenuButtons)
                 restartMenuButton.addTarget(self, action: #selector(restartMenuButtonAction(_:)), for: .touchUpInside)
@@ -780,22 +887,27 @@ class GameViewController: CustomViewController {
                 restartMenuButton.rounded()
                 restartMenuButton.setTitleColor(.black, for: .normal)
                 restartMenuButton.addShadow(color: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 0.5))
-                
+
                 returnToMainMenuMenuButton.alpha = 0
-                returnToMainMenuMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons, y: restartMenuButton.frame.maxY + offsetPauseMenuButtons, width: menuView.frame.width - offsetPauseMenuButtons, height: offsetPauseMenuButtons)
+                returnToMainMenuMenuButton.frame = CGRect(x: -menuView.frame.width - offsetPauseMenuButtons,
+                                                          y: restartMenuButton.frame.maxY + offsetPauseMenuButtons,
+                                                          width: menuView.frame.width - offsetPauseMenuButtons,
+                                                          height: offsetPauseMenuButtons)
                 returnToMainMenuMenuButton.setTitle("Return to main menu", for: .normal)
                 returnToMainMenuMenuButton.titleLabel?.font = UIFont.chernobylFont(of: fontSigePauseMenuButtons)
-                returnToMainMenuMenuButton.addTarget(self, action: #selector(returnToMainMenuMenuButtonAction(_:)), for: .touchUpInside)
+                returnToMainMenuMenuButton.addTarget(self,
+                                                     action: #selector(returnToMainMenuMenuButtonAction(_:)),
+                                                     for: .touchUpInside)
                 returnToMainMenuMenuButton.backgroundColor = .systemRed
                 returnToMainMenuMenuButton.rounded()
                 returnToMainMenuMenuButton.setTitleColor(.white, for: .normal)
                 returnToMainMenuMenuButton.addShadow(color: #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 0.5))
-                
+
                 menuView.addSubview(titleMenuViewLabel)
                 menuView.addSubview(resumeMenuButton)
                 menuView.addSubview(restartMenuButton)
                 menuView.addSubview(returnToMainMenuMenuButton)
-                
+
                 UIView.animate(withDuration: 0.3) {
                     titleMenuViewLabel.alpha = 1
                 }
@@ -816,10 +928,10 @@ class GameViewController: CustomViewController {
 
         }
     }
-    
+
     /// Скрыть меню паузы
-    private func hidePauseMenu(completion : @escaping () -> ()) {
-        
+    private func hidePauseMenu(completion : @escaping () -> Void) {
+
         UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseOut) {
             self.resumeMenuButton.frame.origin.y -= self.upSizeJumpPauseMenuButtons
         } completion: { _ in
@@ -828,7 +940,7 @@ class GameViewController: CustomViewController {
                 self.resumeMenuButton.frame.origin.y = self.menuView.frame.maxY
             }
         }
-        
+
         UIView.animate(withDuration: 0.15, delay: 0.1, options: .curveEaseOut) {
             self.restartMenuButton.frame.origin.y -= self.upSizeJumpPauseMenuButtons
         } completion: { _ in
@@ -838,39 +950,39 @@ class GameViewController: CustomViewController {
                 self.titleMenuViewLabel.alpha = 0
             }
         }
-        
+
         UIView.animate(withDuration: 0.15, delay: 0.2, options: .curveEaseOut) {
             self.returnToMainMenuMenuButton.frame.origin.y -= self.upSizeJumpPauseMenuButtons
         } completion: { _ in
             UIView.animate(withDuration: 0.3, animations: {
                 self.returnToMainMenuMenuButton.alpha = 0
                 self.returnToMainMenuMenuButton.frame.origin.y = self.menuView.frame.maxY
-            }) { _ in
+            }, completion: { _ in
                 UIView.animate(withDuration: 0.3, animations: {
                     self.menuView.frame.size = CGSize(width: 0, height: 0)
-                } , completion: { _ in
-                    
+                }, completion: { _ in
+
                     UIView.animate(withDuration: 0.1, animations: {
                         self.menuButton.alpha = 0
-                    } , completion: { _ in
+                    }, completion: { _ in
                         self.menuButton.setImage(UIImage(systemName: "line.horizontal.3"), for: .normal)
                         UIView.animate(withDuration: 0.1, animations: {
                             self.menuButton.alpha = 1
-                        }) { _ in
+                        }, completion: { _ in
                             completion()
-                        }
+                        })
                     })
-                    
+
                     self.resumeMenuButton.removeFromSuperview()
                     self.restartMenuButton.removeFromSuperview()
                     self.returnToMainMenuMenuButton.removeFromSuperview()
                     self.titleMenuViewLabel.removeFromSuperview()
                     self.menuView.removeFromSuperview()
                 })
-            }
+            })
         }
     }
-    
+
     private func setupScreen() {
         if let settingsData = userDefaults.value(forKey: .userSettings) as? Data {
             do {
@@ -879,18 +991,55 @@ class GameViewController: CustomViewController {
                 timeDuration = TimeInterval(userSettings.speedGame)
                 playerName = userSettings.playerName
                 selectedBarrier = userSettings.selectedBarrier
+                typeControll = userSettings.selectedTypeControll
             } catch {
                 print(error.localizedDescription)
             }
-            
+
         }
+
+        switch typeControll {
+        case 1:
+            self.rigthControlButton.isHidden = true
+            self.leftControlButton.isHidden = true
+        default:
+            self.rigthControlButton.isHidden = false
+            self.leftControlButton.isHidden = false
+        }
+
         firstRoadImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 2)
         firstRoadImageView.contentMode = .scaleToFill
         self.view.insertSubview(firstRoadImageView, at: 0)
-        
-        secondRoadImageView.frame = CGRect(x: 0, y: self.view.frame.origin.y - self.view.frame.height * 2, width: self.view.frame.width, height: self.view.frame.height * 2)
+
+        secondRoadImageView.frame = CGRect(x: 0,
+                                           y: self.view.frame.origin.y - self.view.frame.height * 2,
+                                           width: self.view.frame.width,
+                                           height: self.view.frame.height * 2)
         secondRoadImageView.contentMode = .scaleToFill
         self.view.insertSubview(secondRoadImageView, at: 0)
     }
-    
+
+    private func startUpdateAcceleration() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 1/20
+            motionManager.startAccelerometerUpdates(to: .main) { data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                if let data = data {
+                    if Int(data.acceleration.x * 100) > 10 {
+                        self.moveCar(direction: .right)
+                    }
+                    if Int(data.acceleration.x * 100) < -10 {
+                        self.moveCar(direction: .left)
+                    }
+                    if Int(data.acceleration.x * 100) > -10 && Int(data.acceleration.x * 100) < 10 {
+                        self.returnedRotationCar()
+                    }
+                }
+            }
+        }
+    }
+
 }

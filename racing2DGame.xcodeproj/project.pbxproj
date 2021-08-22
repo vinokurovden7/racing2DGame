@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,9 +17,23 @@
 		920A20652642EF2200AD7A26 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920A20642642EF2200AD7A26 /* GameViewController.swift */; };
 		920A20672642EF2B00AD7A26 /* TableScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920A20662642EF2B00AD7A26 /* TableScoreViewController.swift */; };
 		920A20692642EF7800AD7A26 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920A20682642EF7800AD7A26 /* MainMenuViewController.swift */; };
+		92184F9A26BA5E4A00891D98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92184F9926BA5E4A00891D98 /* GoogleService-Info.plist */; };
 		92241B6026777C45002051F9 /* GameScoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92241B5F26777C45002051F9 /* GameScoreClass.swift */; };
 		923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */; };
 		923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 923F0FDB26B6D395002AAB23 /* Chernobyl.otf */; };
+		923F100C26B7C3F4002AAB23 /* menu_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100626B7C3F3002AAB23 /* menu_4.mp3 */; };
+		923F100D26B7C3F4002AAB23 /* menu_6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100726B7C3F3002AAB23 /* menu_6.mp3 */; };
+		923F100E26B7C3F4002AAB23 /* menu_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100826B7C3F3002AAB23 /* menu_2.mp3 */; };
+		923F100F26B7C3F4002AAB23 /* menu_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100926B7C3F3002AAB23 /* menu_3.mp3 */; };
+		923F101026B7C3F4002AAB23 /* menu_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100A26B7C3F3002AAB23 /* menu_5.mp3 */; };
+		923F101126B7C3F4002AAB23 /* menu_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F100B26B7C3F4002AAB23 /* menu_1.mp3 */; };
+		923F101426B7C3FD002AAB23 /* crashCar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101226B7C3FD002AAB23 /* crashCar.mp3 */; };
+		923F101526B7C3FD002AAB23 /* selectButtonMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */; };
+		923F101A26B7C408002AAB23 /* game_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101626B7C407002AAB23 /* game_1.mp3 */; };
+		923F101B26B7C408002AAB23 /* game_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101726B7C407002AAB23 /* game_3.mp3 */; };
+		923F101C26B7C408002AAB23 /* game_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101826B7C408002AAB23 /* game_4.mp3 */; };
+		923F101D26B7C408002AAB23 /* game_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 923F101926B7C408002AAB23 /* game_2.mp3 */; };
+		923F101F26B7C433002AAB23 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F101E26B7C433002AAB23 /* SoundPlayer.swift */; };
 		923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */; };
 		923F88D12692D23900FF9EAC /* GameScoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */; };
 		923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */; };
@@ -34,9 +48,11 @@
 		92B1655B265E66DE004BF1B4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1655A265E66DE004BF1B4 /* Game.swift */; };
 		92EEC9EC26543AA900D602E4 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EEC9EB26543AA800D602E4 /* GameOverViewController.swift */; };
 		92FDD9962663E7AA00D42280 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDD9952663E7AA00D42280 /* UIFont+CustomFonts.swift */; };
+		EA6A49BF8C69DFA75FE8DD08 /* Pods_racing2DGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D848DE15F0ABB3B5161E200 /* Pods_racing2DGame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D848DE15F0ABB3B5161E200 /* Pods_racing2DGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_racing2DGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9206ED92266FE3DE007B9700 /* SettingsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClass.swift; sourceTree = "<group>"; };
 		920A204B2642ED2900AD7A26 /* racing2DGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = racing2DGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		920A204E2642ED2900AD7A26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +65,23 @@
 		920A20642642EF2200AD7A26 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		920A20662642EF2B00AD7A26 /* TableScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScoreViewController.swift; sourceTree = "<group>"; };
 		920A20682642EF7800AD7A26 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		92184F9926BA5E4A00891D98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92241B5F26777C45002051F9 /* GameScoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreClass.swift; sourceTree = "<group>"; };
 		923F0FDA26B6D395002AAB23 /* Pumpkin Pancakes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pumpkin Pancakes.ttf"; sourceTree = "<group>"; };
 		923F0FDB26B6D395002AAB23 /* Chernobyl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chernobyl.otf; sourceTree = "<group>"; };
+		923F100626B7C3F3002AAB23 /* menu_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_4.mp3; sourceTree = "<group>"; };
+		923F100726B7C3F3002AAB23 /* menu_6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_6.mp3; sourceTree = "<group>"; };
+		923F100826B7C3F3002AAB23 /* menu_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_2.mp3; sourceTree = "<group>"; };
+		923F100926B7C3F3002AAB23 /* menu_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_3.mp3; sourceTree = "<group>"; };
+		923F100A26B7C3F3002AAB23 /* menu_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_5.mp3; sourceTree = "<group>"; };
+		923F100B26B7C3F4002AAB23 /* menu_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_1.mp3; sourceTree = "<group>"; };
+		923F101226B7C3FD002AAB23 /* crashCar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crashCar.mp3; sourceTree = "<group>"; };
+		923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = selectButtonMenu.mp3; sourceTree = "<group>"; };
+		923F101626B7C407002AAB23 /* game_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_1.mp3; sourceTree = "<group>"; };
+		923F101726B7C407002AAB23 /* game_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_3.mp3; sourceTree = "<group>"; };
+		923F101826B7C408002AAB23 /* game_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_4.mp3; sourceTree = "<group>"; };
+		923F101926B7C408002AAB23 /* game_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_2.mp3; sourceTree = "<group>"; };
+		923F101E26B7C433002AAB23 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		923F88C9269226A500FF9EAC /* TableScoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableScoreViewController.storyboard; sourceTree = "<group>"; };
 		923F88CF2692D23900FF9EAC /* GameScoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreViewCell.swift; sourceTree = "<group>"; };
 		923F88D02692D23900FF9EAC /* GameScoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScoreViewCell.xib; sourceTree = "<group>"; };
@@ -66,6 +96,8 @@
 		92B1655A265E66DE004BF1B4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		92EEC9EB26543AA800D602E4 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		92FDD9952663E7AA00D42280 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		BEC5D998DB34F49512BDEB37 /* Pods-racing2DGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racing2DGame.debug.xcconfig"; path = "Target Support Files/Pods-racing2DGame/Pods-racing2DGame.debug.xcconfig"; sourceTree = "<group>"; };
+		C37B3E1855D547A7C06A5F2B /* Pods-racing2DGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racing2DGame.release.xcconfig"; path = "Target Support Files/Pods-racing2DGame/Pods-racing2DGame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6A49BF8C69DFA75FE8DD08 /* Pods_racing2DGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +117,8 @@
 			children = (
 				920A204D2642ED2900AD7A26 /* racing2DGame */,
 				920A204C2642ED2900AD7A26 /* Products */,
+				B50FB0F627702A4C18A5246E /* Pods */,
+				E3857EAC4BCC5F9449F28E64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +133,7 @@
 		920A204D2642ED2900AD7A26 /* racing2DGame */ = {
 			isa = PBXGroup;
 			children = (
+				923F100226B7C3BD002AAB23 /* Sounds */,
 				92FDD9902663E41700D42280 /* fonts */,
 				92B16557265E3E48004BF1B4 /* Extensions */,
 				923F88DB26934D9F00FF9EAC /* DefaultClasses */,
@@ -107,9 +143,53 @@
 				92B198D226934E72009F00ED /* StoryboardXib */,
 				92B198D326934E92009F00ED /* CustomClasses */,
 				920A20572642ED2A00AD7A26 /* Assets.xcassets */,
+				92184F9926BA5E4A00891D98 /* GoogleService-Info.plist */,
 				920A205C2642ED2A00AD7A26 /* Info.plist */,
 			);
 			path = racing2DGame;
+			sourceTree = "<group>";
+		};
+		923F100226B7C3BD002AAB23 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				923F100526B7C3D5002AAB23 /* Effects */,
+				923F100426B7C3D0002AAB23 /* Game */,
+				923F100326B7C3C3002AAB23 /* Menu */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		923F100326B7C3C3002AAB23 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				923F100B26B7C3F4002AAB23 /* menu_1.mp3 */,
+				923F100826B7C3F3002AAB23 /* menu_2.mp3 */,
+				923F100926B7C3F3002AAB23 /* menu_3.mp3 */,
+				923F100626B7C3F3002AAB23 /* menu_4.mp3 */,
+				923F100A26B7C3F3002AAB23 /* menu_5.mp3 */,
+				923F100726B7C3F3002AAB23 /* menu_6.mp3 */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		923F100426B7C3D0002AAB23 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				923F101626B7C407002AAB23 /* game_1.mp3 */,
+				923F101926B7C408002AAB23 /* game_2.mp3 */,
+				923F101726B7C407002AAB23 /* game_3.mp3 */,
+				923F101826B7C408002AAB23 /* game_4.mp3 */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		923F100526B7C3D5002AAB23 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				923F101226B7C3FD002AAB23 /* crashCar.mp3 */,
+				923F101326B7C3FD002AAB23 /* selectButtonMenu.mp3 */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 		923F88DB26934D9F00FF9EAC /* DefaultClasses */ = {
@@ -165,6 +245,7 @@
 				92241B5F26777C45002051F9 /* GameScoreClass.swift */,
 				92696A142667A8A500F2B540 /* CustomButton.swift */,
 				92B1655A265E66DE004BF1B4 /* Game.swift */,
+				923F101E26B7C433002AAB23 /* SoundPlayer.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -194,6 +275,23 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		B50FB0F627702A4C18A5246E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5D998DB34F49512BDEB37 /* Pods-racing2DGame.debug.xcconfig */,
+				C37B3E1855D547A7C06A5F2B /* Pods-racing2DGame.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E3857EAC4BCC5F9449F28E64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D848DE15F0ABB3B5161E200 /* Pods_racing2DGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +299,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 920A205F2642ED2A00AD7A26 /* Build configuration list for PBXNativeTarget "racing2DGame" */;
 			buildPhases = (
+				CC3C9668D9160238AB3E9C62 /* [CP] Check Pods Manifest.lock */,
+				92184F9C26BA5F3D00891D98 /* SwiftLint */,
 				920A20472642ED2900AD7A26 /* Sources */,
 				920A20482642ED2900AD7A26 /* Frameworks */,
 				920A20492642ED2900AD7A26 /* Resources */,
+				D7E3C906DA608761984AADFD /* [CP] Embed Pods Frameworks */,
+				92184F9B26BA5EE800891D98 /* FirebaseCrashlytics */,
 			);
 			buildRules = (
 			);
@@ -251,18 +353,111 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923F101C26B7C408002AAB23 /* game_4.mp3 in Resources */,
+				923F100F26B7C3F4002AAB23 /* menu_3.mp3 in Resources */,
+				923F100C26B7C3F4002AAB23 /* menu_4.mp3 in Resources */,
 				920A205B2642ED2A00AD7A26 /* LaunchScreen.storyboard in Resources */,
+				923F101526B7C3FD002AAB23 /* selectButtonMenu.mp3 in Resources */,
 				923F88CA269226A500FF9EAC /* TableScoreViewController.storyboard in Resources */,
+				923F101426B7C3FD002AAB23 /* crashCar.mp3 in Resources */,
 				920A20582642ED2A00AD7A26 /* Assets.xcassets in Resources */,
+				923F100D26B7C3F4002AAB23 /* menu_6.mp3 in Resources */,
+				923F101B26B7C408002AAB23 /* game_3.mp3 in Resources */,
 				92696A3B266891D300F2B540 /* Settings.storyboard in Resources */,
+				923F100E26B7C3F4002AAB23 /* menu_2.mp3 in Resources */,
 				920A20562642ED2900AD7A26 /* Main.storyboard in Resources */,
+				923F101126B7C3F4002AAB23 /* menu_1.mp3 in Resources */,
 				923F88D22692D23900FF9EAC /* GameScoreViewCell.xib in Resources */,
+				923F101D26B7C408002AAB23 /* game_2.mp3 in Resources */,
 				923F0FDD26B6D395002AAB23 /* Chernobyl.otf in Resources */,
+				923F101026B7C3F4002AAB23 /* menu_5.mp3 in Resources */,
+				923F101A26B7C408002AAB23 /* game_1.mp3 in Resources */,
 				923F0FDC26B6D395002AAB23 /* Pumpkin Pancakes.ttf in Resources */,
+				92184F9A26BA5E4A00891D98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92184F9B26BA5EE800891D98 /* FirebaseCrashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = FirebaseCrashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		92184F9C26BA5F3D00891D98 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		CC3C9668D9160238AB3E9C62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-racing2DGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7E3C906DA608761984AADFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-racing2DGame/Pods-racing2DGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-racing2DGame/Pods-racing2DGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-racing2DGame/Pods-racing2DGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		920A20472642ED2900AD7A26 /* Sources */ = {
@@ -279,6 +474,7 @@
 				920A204F2642ED2900AD7A26 /* AppDelegate.swift in Sources */,
 				926969AB2664BBAA00F2B540 /* CustomViewController.swift in Sources */,
 				920A20512642ED2900AD7A26 /* SceneDelegate.swift in Sources */,
+				923F101F26B7C433002AAB23 /* SoundPlayer.swift in Sources */,
 				92A83B56266DE021009B060A /* UserDefaultsKeys.swift in Sources */,
 				92A83B58266E2368009B060A /* Number+Mapped.swift in Sources */,
 				92B16556265E3E3A004BF1B4 /* Button+Shadow.swift in Sources */,
@@ -431,11 +627,14 @@
 		};
 		920A20602642ED2A00AD7A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC5D998DB34F49512BDEB37 /* Pods-racing2DGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = AWN3QD4X7Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = racing2DGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,11 +649,13 @@
 		};
 		920A20612642ED2A00AD7A26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C37B3E1855D547A7C06A5F2B /* Pods-racing2DGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AWN3QD4X7Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = racing2DGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
