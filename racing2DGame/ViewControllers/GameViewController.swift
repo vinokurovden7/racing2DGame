@@ -481,20 +481,8 @@ class GameViewController: CustomViewController {
         SoundPlayer.musicPlayer.stopPlaying()
         statusGame = .pause
         returnedRotationCar()
-        var usersScoreArray: [GameScoreClass] = []
-        if let gameScoresData = userDefaults.value(forKey: .gameScore) as? Data {
-            do {
-                usersScoreArray = try JSONDecoder().decode([GameScoreClass].self, from: gameScoresData)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        let userScore = GameScoreClass()
-        userScore.playerName = self.playerName
-        userScore.score = score
-        usersScoreArray.append(userScore)
-        let userScoreData = try? JSONEncoder().encode(usersScoreArray)
-        userDefaults.setValue(userScoreData, forKey: .gameScore)
+        let savingUserScore = Score(playerName: self.playerName, score: score)
+        DatabaseManager.shared.saveScore(userScore: savingUserScore)
         scoreTimer.invalidate()
         if !showHelp {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
