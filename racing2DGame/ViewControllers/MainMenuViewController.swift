@@ -165,7 +165,7 @@ class MainMenuViewController: CustomViewController {
             UIView.animate(withDuration: 0.3, delay: 0.4, options: .curveEaseIn, animations: {
                 self.tableScoreButton.alpha = 0
             }, completion: { _ in
-                self.showViewController(storyboardName: String(describing: TableScoreViewController()),
+                self.showViewController(storyboardName: String(describing: type(of: TableScoreViewController())),
                                         showingViewController: TableScoreViewController(),
                                         navigationController: true)
             })
@@ -186,7 +186,7 @@ class MainMenuViewController: CustomViewController {
             UIView.animate(withDuration: 0.3, delay: 0.4, options: .curveEaseIn, animations: {
                 self.settingButton.alpha = 0
             }, completion: { _ in
-                self.showViewController(storyboardName: "Settings",
+                self.showViewController(storyboardName: String(describing: type(of: SettingViewController())),
                                         showingViewController: SettingViewController(),
                                         navigationController: true)
             })

@@ -39,7 +39,7 @@ class GameScoreViewCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
 
-    func setup(with score: GameScoreClass) {
+    func setup(with score: Score) {
         self.playerNameLabel.text = score.playerName
         self.gameScoreLabel.text = "\(score.score)"
         self.dateScoreLabel.text = dateFormatter.string(from: score.dateScore)

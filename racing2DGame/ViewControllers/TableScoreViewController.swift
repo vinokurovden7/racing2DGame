@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TableScoreViewController: CustomViewController {
 
     private let userDefaults = UserDefaults.standard
-    private var usersScoreArray: [GameScoreClass] = []
+//    private var usersScoreArray: [GameScoreClass] = []
+    private var usersScoreArray: Results<Score>?
     @IBOutlet weak var gameScoreTableView: UITableView!
     private let soundEffectsPlayer = SoundPlayer()
 
@@ -40,14 +42,7 @@ class TableScoreViewController: CustomViewController {
         let nib = UINib(nibName: String(describing: GameScoreViewCell.self), bundle: nil)
         gameScoreTableView.register(nib, forCellReuseIdentifier: GameScoreViewCell.identifier)
 
-        if let gameScoresData = userDefaults.value(forKey: .gameScore) as? Data {
-            do {
-                usersScoreArray = try JSONDecoder().decode([GameScoreClass].self, from: gameScoresData)
-                gameScoreTableView.reloadData()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+        usersScoreArray = DatabaseManager.shared.getUserScore()
 
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -64,13 +59,17 @@ class TableScoreViewController: CustomViewController {
 extension TableScoreViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let usersScoreArray = usersScoreArray else {
+            return 0
+        }
         return usersScoreArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let identifier = GameScoreViewCell.identifier
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? GameScoreViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? GameScoreViewCell,
+              let usersScoreArray = usersScoreArray else {
             return UITableViewCell()
         }
 

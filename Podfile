@@ -8,5 +8,6 @@ target 'racing2DGame' do
   pod 'SwiftLint'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  pod 'RealmSwift', '~>10'
 
 end
